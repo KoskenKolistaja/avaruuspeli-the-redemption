@@ -1,0 +1,15 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dbqvvyrhvjlpl"]
+
+[ext_resource type="Texture2D" uid="uid://bhud4mgusa5uq" path="res://Assets/Textures/Sky/8k_stars_milky_way.jpg" id="1_tf680"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mhjb5"]
+panorama = ExtResource("1_tf680")
+
+[sub_resource type="Sky" id="Sky_dhupp"]
+sky_material = SubResource("PanoramaSkyMaterial_mhjb5")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_dhupp")
+glow_enabled = true
+glow_blend_mode = 1

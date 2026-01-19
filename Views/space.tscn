@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://372cwiqlmyrk"]
+[gd_scene load_steps=13 format=3 uid="uid://372cwiqlmyrk"]
 
-[ext_resource type="Texture2D" uid="uid://bhud4mgusa5uq" path="res://Assets/Textures/Sky/8k_stars_milky_way.jpg" id="1_dhupp"]
+[ext_resource type="Environment" uid="uid://dbqvvyrhvjlpl" path="res://Assets/Environment/space.tres" id="1_wgg4r"]
 [ext_resource type="PackedScene" uid="uid://4nju5xjsxhmb" path="res://Entities/Planets/planet.tscn" id="2_x3nny"]
 [ext_resource type="PackedScene" uid="uid://djexg4v384ove" path="res://Entities/UI/planet_page.tscn" id="3_ormkk"]
 [ext_resource type="PackedScene" uid="uid://8f5b0k70rwev" path="res://Entities/Player/player.tscn" id="4_rfnn0"]
@@ -13,22 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bo56i7frnidqw" path="res://Assets/Textures/UI Textures/Tube.png" id="11_wgg4r"]
 [ext_resource type="Texture2D" uid="uid://dw2j2jrqffb14" path="res://Assets/Textures/UI Textures/SpaceShip.png" id="12_6rlf0"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mhjb5"]
-panorama = ExtResource("1_dhupp")
-
-[sub_resource type="Sky" id="Sky_dhupp"]
-sky_material = SubResource("PanoramaSkyMaterial_mhjb5")
-
-[sub_resource type="Environment" id="Environment_x3nny"]
-background_mode = 2
-sky = SubResource("Sky_dhupp")
-
 [node name="Space" type="Node3D" groups=["space"]]
 
 [node name="Ambient" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Ambient"]
-environment = SubResource("Environment_x3nny")
+environment = ExtResource("1_wgg4r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ambient"]
 transform = Transform3D(0.32936686, 0.6407397, -0.69352007, -0.27487615, 0.7677582, 0.5787836, 0.90330535, 0, 0.42899817, 0, 0, 0)
@@ -44,6 +34,7 @@ acceleration = 15.0
 planet_visual = ExtResource("5_pu55j")
 size = 10.0
 planet_id = 1
+owner_id = 1
 planet_icon = ExtResource("5_aujwv")
 atmosphere = true
 warm = true
@@ -53,6 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
 planet_id = 2
+owner_id = 1
 planet_name = "Mingion"
 planet_icon = ExtResource("6_pu55j")
 has_uranium = true

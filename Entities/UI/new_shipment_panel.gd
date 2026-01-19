@@ -17,7 +17,7 @@ func parse_rules():
 		return
 
 	# 1. Setup the Dictionary
-	var trade_packet = {
+	var shipment_packet = {
 		"sender_id": sender_id,
 		"receiver_id": receiver_id,
 		"rules": {},
@@ -42,7 +42,7 @@ func parse_rules():
 			rule_data["amount"] = rule.get_amount()
 			
 			# Add to dictionary using unique ID
-			trade_packet["rules"][rule_id_counter] = rule_data
+			shipment_packet["rules"][rule_id_counter] = rule_data
 			rule_id_counter += 1
 
 	# 3. Cargo Logic (The Fix)
@@ -59,13 +59,13 @@ func parse_rules():
 		print("Error: Resource name is empty! Check your OptionButton items.")
 		return
 
-	trade_packet["cargo"] = {
+	shipment_packet["cargo"] = {
 		"resource": resource_name.to_lower(), 
 		"amount": int($CargoContainer/SpinBox.value)
 	}
 
-	print("Sending Packet:", trade_packet)
-	get_parent().assign_new_trade(trade_packet)
+	print("Sending Packet:", shipment_packet)
+	get_parent().assign_new_shipment(shipment_packet)
 	queue_free()
 
 func send_settings_are_correct() -> bool:

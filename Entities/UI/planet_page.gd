@@ -35,8 +35,8 @@ func _physics_process(delta):
 		update_increases()
 
 
-func assign_new_trade(exported_dictionary):
-	planet.assign_new_trade(exported_dictionary)
+func assign_new_shipment(exported_dictionary):
+	planet.assign_new_shipment(exported_dictionary)
 
 func request_buy_building(slot_id : int , building_name : String , catalogue_panel):
 	planet.request_buy_building(slot_id,building_name,catalogue_panel)

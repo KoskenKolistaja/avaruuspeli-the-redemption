@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+
+@export var id : int
+
 ## SHIP SETTINGS
 @export_group("Movement Stats")
 @export var max_speed: float = 25.0

@@ -9,6 +9,7 @@ class_name Planet
 
 @export var planet_id : int
 
+@export var owner_id : int
 
 
 #Planet data
@@ -32,7 +33,7 @@ class_name Planet
 #Planet resources
 
 var population : int = 10
-var food : int = 0
+var food : int = 5000
 var technology : int = 0
 var iron : int = 0
 var uranium : int = 0
@@ -75,21 +76,33 @@ func _ready():
 
 
 
+func set_owner_id(exported_id):
+	owner_id = exported_id
+
+func get_owner_id() -> int:
+	return owner_id
 
 
 func get_buildings():
 	return $IncomeHandler.get_sorted_productive_buildings()
 
+func get_shipment_dictionaries():
+	return %AutoSender.get_shipment_dictionaries()
+
 func get_trade_dictionaries():
 	return %AutoSender.get_trade_dictionaries()
 
-#Passing function
-func assign_new_trade(exported_trade_dictionary):
-	%AutoSender.assing_new_trade(exported_trade_dictionary)
+func get_auto_sender():
+	return %AutoSender
+
 
 #Passing function
-func request_delete_trade(exported_index):
-	%AutoSender.delete_trade(exported_index)
+func assign_new_shipment(exported_shipment_dictionary):
+	%AutoSender.assing_new_shipment(exported_shipment_dictionary)
+
+#Passing function
+func request_delete_shipment(exported_index):
+	%AutoSender.delete_shipment(exported_index)
 
 
 #Action function

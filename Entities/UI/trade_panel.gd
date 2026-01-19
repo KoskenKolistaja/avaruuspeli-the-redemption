@@ -8,19 +8,19 @@ extends Control
 var planet
 
 
-func assign_new_trade(exported_dictionary):
-	get_parent().assign_new_trade(exported_dictionary)
+func assign_new_shipment(exported_dictionary):
+	get_parent().assign_new_shipment(exported_dictionary)
 	update()
 
 func _ready():
 	update()
 
 
-func request_delete_trade(index):
-	planet.request_delete_trade(index)
+func request_delete_shipment(index):
+	planet.request_delete_shipment(index)
 	update()
 
-var trade_dictionary_example : Dictionary = {
+var shipment_dictionary_example : Dictionary = {
 	"sender_id": 1,
 	"receiver_id": 2,
 	"rules": {
@@ -33,19 +33,19 @@ var trade_dictionary_example : Dictionary = {
 
 func update():
 	if not planet:
-		push_warning("No assigned planet for trade panel!")
+		push_warning("No assigned planet for shipment panel!")
 		return
 	
 	for c in %ShipmentContainer.get_children():
 		c.queue_free()
 	
-	var trades_array : Array = planet.get_trade_dictionaries()
+	var shipments_array : Array = planet.get_shipment_dictionaries()
 	
-	# CHANGE HERE: Use range(trades_array.size()) to get 0, 1, 2, etc.
-	for index in range(trades_array.size()):
+	# CHANGE HERE: Use range(shipments_array.size()) to get 0, 1, 2, etc.
+	for index in range(shipments_array.size()):
 		
 		# Now you retrieve the dictionary using the index
-		var dic = trades_array[index]
+		var dic = shipments_array[index]
 		
 		var button = shipment_button_scene.instantiate()
 		button.resource_type = dic["cargo"]["resource"]
@@ -54,7 +54,7 @@ func update():
 		button.root_parent = self
 		
 		# Now you have the correct index to assign
-		button.trade_index = index 
+		button.shipment_index = index 
 		
 		%ShipmentContainer.add_child(button)
 

@@ -1,6 +1,6 @@
 extends Panel
 
-var trade_index = 0
+var shipment_index = 0
 var root_parent
 var resource_type : String
 var resource_amount : int
@@ -69,4 +69,4 @@ func update_icon():
 
 
 func _on_delete_button_pressed():
-	root_parent.request_delete_trade(trade_index)
+	root_parent.request_delete_shipment(shipment_index)

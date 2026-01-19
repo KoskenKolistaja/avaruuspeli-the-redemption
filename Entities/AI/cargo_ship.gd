@@ -14,6 +14,7 @@ var uranium : int = 0
 @export var uranium_icon : Texture
 
 
+var is_trade_ship = false
 
 
 @export var initial_receiver : Node3D
@@ -24,6 +25,11 @@ var receiver_position
 var speed = 0.05
 
 func _ready():
+	
+	if is_trade_ship:
+		$CargoShipMesh.hide()
+		$TradeShipMesh.show()
+	
 	receiver_position = receiver.global_position
 	if initial_receiver:
 		receiver = initial_receiver
@@ -40,7 +46,7 @@ func _ready():
 
 func set_icon():
 	var icon_name = get_biggest_resource() + "_icon"
-	$MeshInstance3D2.get_surface_override_material(0).albedo_texture = get(icon_name)
+	$ResourceIcon.get_surface_override_material(0).albedo_texture = get(icon_name)
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dt3pkdk3g3fgs"]
+[gd_scene load_steps=21 format=4 uid="uid://dt3pkdk3g3fgs"]
 
 [ext_resource type="Script" uid="uid://cw1qhdq7331kx" path="res://Entities/AI/cargo_ship.gd" id="1_buq0t"]
 [ext_resource type="Texture2D" uid="uid://dnaqyuah2wasp" path="res://Assets/Textures/UI Textures/Resources/People.png" id="2_yhljl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://df4lia88n7nwt" path="res://Assets/Textures/UI Textures/Resources/Cog.png" id="4_ivvue"]
 [ext_resource type="Texture2D" uid="uid://qftnbjvup0f1" path="res://Assets/Textures/UI Textures/Resources/Ingot.png" id="5_sdqe1"]
 [ext_resource type="Texture2D" uid="uid://luga2yj34fhk" path="res://Assets/Models/BattleSpaceShip/Texture/T_Spase_64.png" id="6_qp3ot"]
+[ext_resource type="Texture2D" uid="uid://movjd15553vc" path="res://Assets/Models/BattleSpaceShip/Texture/T_Spase_blue.png" id="7_ivvue"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_buq0t"]
 
@@ -14,6 +15,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buq0t"]
 resource_local_to_scene = true
 transparency = 1
+shading_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5on6"]
 resource_name = "Spaceship_mat"
@@ -57,6 +59,82 @@ shadow_mesh = SubResource("ArrayMesh_cdobl")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivvue"]
 albedo_texture = ExtResource("6_qp3ot")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdqe1"]
+albedo_texture = ExtResource("7_ivvue")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxc2h"]
+transparency = 1
+albedo_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_ivvue"]
+material = SubResource("StandardMaterial3D_fxc2h")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id="Animation_ivvue"]
+resource_name = "lightflicker"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 5.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlickerLight:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.1, 1.0, 0.1]
+}
+
+[sub_resource type="Animation" id="Animation_sdqe1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlickerLight:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdqe1"]
+_data = {
+&"RESET": SubResource("Animation_sdqe1"),
+&"lightflicker": SubResource("Animation_ivvue")
+}
+
 [node name="CargoShip" type="Node3D"]
 script = ExtResource("1_buq0t")
 population_icon = ExtResource("2_yhljl")
@@ -69,13 +147,35 @@ uranium_icon = ExtResource("5_sdqe1")
 visible = false
 mesh = SubResource("CapsuleMesh_buq0t")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="ResourceIcon" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.46270978)
 mesh = SubResource("QuadMesh_buq0t")
 surface_material_override/0 = SubResource("StandardMaterial3D_buq0t")
 
-[node name="Light_Cruiser_3" type="MeshInstance3D" parent="."]
+[node name="CargoShipMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.5298984e-09, -1.5298988e-09, -0.055, -0.035, -1.5298985e-09, 2.4041265e-09, -1.5298988e-09, 0.035, -2.4041265e-09, 0, 0, -0.30238903)
 mesh = SubResource("ArrayMesh_iebls")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ivvue")
+
+[node name="TradeShipMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.5298984e-09, -1.5298988e-09, -0.055, -0.035, -1.5298985e-09, 2.4041265e-09, -1.5298988e-09, 0.035, -2.4041265e-09, 0, 0, -0.30238903)
+visible = false
+mesh = SubResource("ArrayMesh_iebls")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_sdqe1")
+
+[node name="FlickerLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92262095, 0.22710341)
+mesh = SubResource("SphereMesh_ivvue")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92320967, 0.32633436)
+light_energy = 0.0
+omni_range = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sdqe1")
+}
+autoplay = "lightflicker"
