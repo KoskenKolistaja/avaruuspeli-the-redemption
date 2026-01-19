@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0l74j8kiim05"]
+
+[ext_resource type="Script" uid="uid://bjry60pwpi41h" path="res://Entities/Buildings/foundry.gd" id="1_oro6h"]
+
+[node name="Foundry" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_oro6h")
+building_name = "foundry"
+product_yield = {
+"Technology": 20
+}
+product_cost = {
+"Iron": 1
+}

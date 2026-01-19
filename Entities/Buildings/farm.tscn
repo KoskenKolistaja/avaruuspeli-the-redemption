@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2558772vasin"]
+
+[ext_resource type="Script" uid="uid://ddpadno333txd" path="res://Entities/Buildings/farm.gd" id="1_d04m4"]
+
+[node name="Farm" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_d04m4")
+building_name = "farm"
+product_yield = {
+"Food": 75
+}

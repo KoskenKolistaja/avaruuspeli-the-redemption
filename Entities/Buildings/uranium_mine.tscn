@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsrelq5ep88mt"]
+
+[ext_resource type="Script" uid="uid://b7p7m7nrw7wv" path="res://Entities/Buildings/uranium_mine.gd" id="1_kjllq"]
+
+[node name="UraniumMine" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_kjllq")
+building_name = "uranium_mine"
+product_yield = {
+"Uranium": 2
+}

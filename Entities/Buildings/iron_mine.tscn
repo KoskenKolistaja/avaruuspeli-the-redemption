@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbyhcdm7x25j1"]
+
+[ext_resource type="Script" uid="uid://btfjbx6x85wkn" path="res://Entities/Buildings/iron_mine.gd" id="1_3nlsx"]
+
+[node name="IronMine" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_3nlsx")
+building_name = "iron_mine"
+product_yield = {
+"Iron": 2
+}

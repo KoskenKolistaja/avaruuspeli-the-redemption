@@ -1,0 +1,4248 @@
+[gd_scene load_steps=41 format=3 uid="uid://djexg4v384ove"]
+
+[ext_resource type="Script" uid="uid://2rd6vl5ymmo" path="res://Entities/UI/planet_page.gd" id="1_11xo0"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://Assets/Themes/FlatUI4/kenneyUI-blue.tres" id="1_30mpw"]
+[ext_resource type="Texture2D" uid="uid://cbaf4lwbmehpr" path="res://Assets/Textures/UI Textures/Traits/Atmosphere.png" id="1_e66a4"]
+[ext_resource type="Texture2D" uid="uid://625f20a6m2ys" path="res://Assets/Textures/UI Textures/Traits/Sun.png" id="2_bglff"]
+[ext_resource type="Texture2D" uid="uid://d1i6nv6tyvimt" path="res://Assets/Textures/UI Textures/Traits/SunIntense.png" id="3_ygg7q"]
+[ext_resource type="Texture2D" uid="uid://7qsi6u5knsj0" path="res://Assets/Textures/UI Textures/Traits/Wheat.png" id="4_8ide5"]
+[ext_resource type="Texture2D" uid="uid://qftnbjvup0f1" path="res://Assets/Textures/UI Textures/Resources/Ingot.png" id="5_11xo0"]
+[ext_resource type="Texture2D" uid="uid://dnaqyuah2wasp" path="res://Assets/Textures/UI Textures/Resources/People.png" id="6_bglff"]
+[ext_resource type="Texture2D" uid="uid://c5lqhv1bt6s6e" path="res://Assets/Textures/UI Textures/Wrench.png" id="7_8nihn"]
+[ext_resource type="Texture2D" uid="uid://b1lsgjyqlgb0c" path="res://Assets/Textures/UI Textures/Resources/Food.png" id="7_ygg7q"]
+[ext_resource type="Texture2D" uid="uid://df4lia88n7nwt" path="res://Assets/Textures/UI Textures/Resources/Cog.png" id="8_8ide5"]
+[ext_resource type="Texture2D" uid="uid://okrcm5iy3fu1" path="res://Assets/Textures/UI Textures/House.png" id="8_tfev6"]
+[ext_resource type="Texture2D" uid="uid://cs1hvumgt41on" path="res://Assets/Textures/UI Textures/Trade.png" id="9_8t6be"]
+[ext_resource type="Texture2D" uid="uid://cveeysrwxph0k" path="res://Assets/Textures/UI Textures/Military.png" id="10_idntn"]
+[ext_resource type="Texture2D" uid="uid://bo56i7frnidqw" path="res://Assets/Textures/UI Textures/Tube.png" id="12_bov6h"]
+[ext_resource type="Texture2D" uid="uid://dw2j2jrqffb14" path="res://Assets/Textures/UI Textures/SpaceShip.png" id="12_fh646"]
+[ext_resource type="Texture2D" uid="uid://c2mx6g2mef0pd" path="res://Assets/Textures/UI Textures/Antenna.png" id="14_0a6hg"]
+[ext_resource type="Texture2D" uid="uid://i2qu4ns67dra" path="res://Assets/Textures/UI Textures/Cross.png" id="14_jmr1l"]
+[ext_resource type="Texture2D" uid="uid://c7aivfibd2fjb" path="res://Assets/Textures/UI Textures/Plus.png" id="15_1vi8f"]
+[ext_resource type="Texture2D" uid="uid://bc0jmfo43d6h1" path="res://Assets/Textures/UI Textures/Agent.png" id="15_vlxa7"]
+[ext_resource type="Script" uid="uid://b2fwwaq5x8vn" path="res://Entities/UI/buildings_panel.gd" id="16_nf005"]
+[ext_resource type="Script" uid="uid://bvjgb8uff4p5k" path="res://Entities/UI/catalogue_panel.gd" id="17_hg6ps"]
+[ext_resource type="Texture2D" uid="uid://djoq7uf4i5hpc" path="res://Assets/Textures/UI Textures/Buildings/Farm.png" id="17_y7dxj"]
+[ext_resource type="Script" uid="uid://qjchpbskf2kw" path="res://Entities/UI/building_slot.gd" id="17_ysoth"]
+[ext_resource type="Texture2D" uid="uid://ddyxwqusspxr2" path="res://Assets/Textures/UI Textures/Buildings/Greenhouse.png" id="18_hg6ps"]
+[ext_resource type="Texture2D" uid="uid://b4a2ewa74oxrw" path="res://Assets/Textures/UI Textures/Buildings/PlantLaboratory.png" id="19_nf005"]
+[ext_resource type="Texture2D" uid="uid://buj33sr1tjnhh" path="res://Assets/Textures/UI Textures/UISphere.png" id="19_v55uj"]
+[ext_resource type="Texture2D" uid="uid://p8dqmvjy5b64" path="res://Assets/Textures/UI Textures/Buildings/Factory.png" id="20_ysoth"]
+[ext_resource type="Texture2D" uid="uid://dgititopgpgfs" path="res://Assets/Textures/UI Textures/Buildings/Foundry.png" id="21_yd4vl"]
+[ext_resource type="Texture2D" uid="uid://cdnpcscb8acyu" path="res://Assets/Textures/UI Textures/Buildings/PowerPlant.png" id="22_ad7ei"]
+[ext_resource type="Texture2D" uid="uid://d01ramo0mt4f4" path="res://Assets/Textures/UI Textures/Buildings/IronMine.png" id="23_5jub4"]
+[ext_resource type="Texture2D" uid="uid://csu81eqms08yc" path="res://Assets/Textures/UI Textures/Buildings/UraniumMine.png" id="24_fh646"]
+[ext_resource type="Texture2D" uid="uid://c6i1livypv0nf" path="res://Assets/Textures/UI Textures/Buildings/Capital.png" id="28_yd4vl"]
+[ext_resource type="Texture2D" uid="uid://ba7pb0tp54fyj" path="res://Assets/Textures/UI Textures/Buildings/SuperFarm.png" id="29_ad7ei"]
+[ext_resource type="PackedScene" uid="uid://dlqsj0gh8e6or" path="res://Entities/UI/trade_panel.tscn" id="30_5jub4"]
+[ext_resource type="Texture2D" uid="uid://coc8ok6nhfix0" path="res://Assets/Textures/UI Textures/Buildings/UraniumExtractor.png" id="32_wmfi7"]
+[ext_resource type="Texture2D" uid="uid://b8wv31g1eujg6" path="res://Assets/Textures/UI Textures/TrashCan.png" id="33_nlcpk"]
+[ext_resource type="Texture2D" uid="uid://bimh5afcn74fl" path="res://Assets/Textures/UI Textures/Buildings/Tokamak.png" id="34_jbvib"]
+[ext_resource type="Texture2D" uid="uid://dl3g1a6tsni8o" path="res://Assets/Textures/UI Textures/Buildings/GeothermalStation.png" id="35_balfn"]
+[ext_resource type="Script" uid="uid://cf6326cr2lc1f" path="res://Entities/UI/ship_panel.gd" id="35_sik3p"]
+
+[node name="PlanetPage" type="Control" groups=["planet_page"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_30mpw")
+script = ExtResource("1_11xo0")
+
+[node name="PlanetPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -512.0
+offset_right = 310.0
+offset_bottom = -12.0
+grow_vertical = 0
+
+[node name="PlanetNameLabel" type="Label" parent="PlanetPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Planet Name"
+
+[node name="PlanetContents" type="VBoxContainer" parent="PlanetPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 47.0
+offset_right = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="TraitContainer" type="GridContainer" parent="PlanetPanel/PlanetContents"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 4
+
+[node name="Atmosphere" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="Warm" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_bglff")
+expand_mode = 1
+
+[node name="Hot" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_ygg7q")
+expand_mode = 1
+
+[node name="Soil" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_8ide5")
+expand_mode = 1
+
+[node name="Iron" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Uranium" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
+visible = false
+self_modulate = Color(0.2, 0.2, 0.2, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="ButtonContainer" type="GridContainer" parent="PlanetPanel/PlanetContents"]
+layout_mode = 2
+columns = 4
+
+[node name="SettingsButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Settings"
+icon = ExtResource("7_8nihn")
+text_overrun_behavior = 1
+expand_icon = true
+
+[node name="BuildingsButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("8_tfev6")
+expand_icon = true
+
+[node name="TradeButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("9_8t6be")
+expand_icon = true
+
+[node name="MilitaryButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("10_idntn")
+expand_icon = true
+
+[node name="ScienceButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("12_bov6h")
+expand_icon = true
+
+[node name="ShipButton" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("12_fh646")
+expand_icon = true
+
+[node name="MilitaryButton4" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("14_0a6hg")
+expand_icon = true
+
+[node name="MilitaryButton5" type="Button" parent="PlanetPanel/PlanetContents/ButtonContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("15_vlxa7")
+expand_icon = true
+
+[node name="ResourceContainer" type="VBoxContainer" parent="PlanetPanel/PlanetContents"]
+layout_mode = 2
+
+[node name="Population" type="HBoxContainer" parent="PlanetPanel/PlanetContents/ResourceContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel/PlanetContents/ResourceContainer/Population"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_bglff")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Population"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="PopulationAmount" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Population"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 24)
+layout_mode = 2
+text = "157"
+
+[node name="PopulationIncrease" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Population"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "157"
+
+[node name="Food" type="HBoxContainer" parent="PlanetPanel/PlanetContents/ResourceContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel/PlanetContents/ResourceContainer/Food"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Food"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="FoodAmount" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Food"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 24)
+layout_mode = 2
+text = "127"
+
+[node name="FoodIncrease" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Food"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "127"
+
+[node name="Technology" type="HBoxContainer" parent="PlanetPanel/PlanetContents/ResourceContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel/PlanetContents/ResourceContainer/Technology"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Technology"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="TechnologyAmount" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Technology"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 24)
+layout_mode = 2
+text = "550"
+
+[node name="TechnologyIncrease" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Technology"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "550"
+
+[node name="Iron" type="HBoxContainer" parent="PlanetPanel/PlanetContents/ResourceContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel/PlanetContents/ResourceContainer/Iron"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Iron"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="IronAmount" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Iron"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 24)
+layout_mode = 2
+text = "550"
+
+[node name="IronIncrease" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Iron"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "550"
+
+[node name="Uranium" type="HBoxContainer" parent="PlanetPanel/PlanetContents/ResourceContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel/PlanetContents/ResourceContainer/Uranium"]
+self_modulate = Color(0.24, 0.24, 0.24, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Uranium"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="UraniumAmount" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Uranium"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 24)
+layout_mode = 2
+text = "550"
+
+[node name="UraniumIncrease" type="Label" parent="PlanetPanel/PlanetContents/ResourceContainer/Uranium"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+text = "550"
+
+[node name="TextureRect" type="TextureRect" parent="PlanetPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("19_v55uj")
+expand_mode = 1
+
+[node name="SizeLabel" type="Label" parent="PlanetPanel/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Planet Settings"
+
+[node name="SettingsContainer" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 59.0
+offset_right = -17.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesiredPopulationContainer" type="HBoxContainer" parent="SettingsPanel/SettingsContainer"]
+layout_mode = 2
+
+[node name="DesiredPopulationLabel" type="Label" parent="SettingsPanel/SettingsContainer/DesiredPopulationContainer"]
+layout_mode = 2
+text = "Desired population: "
+
+[node name="SpinBox" type="SpinBox" parent="SettingsPanel/SettingsContainer/DesiredPopulationContainer"]
+layout_mode = 2
+min_value = 1.0
+value = 10.0
+rounded = true
+allow_greater = true
+
+[node name="SettingsExit" type="Button" parent="SettingsPanel"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+icon = ExtResource("14_jmr1l")
+expand_icon = true
+
+[node name="BuildingsPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_nf005")
+capital_texture = ExtResource("28_yd4vl")
+factory_texture = ExtResource("20_ysoth")
+farm_texture = ExtResource("17_y7dxj")
+foundry_texture = ExtResource("21_yd4vl")
+geothermal_station_texture = ExtResource("35_balfn")
+greenhouse_texture = ExtResource("18_hg6ps")
+iron_mine_texture = ExtResource("23_5jub4")
+plant_laboratory_texture = ExtResource("19_nf005")
+power_plant_texture = ExtResource("22_ad7ei")
+super_farm_texture = ExtResource("29_ad7ei")
+tokamak_texture = ExtResource("34_jbvib")
+uranium_extractor_texture = ExtResource("32_wmfi7")
+uranium_mine_texture = ExtResource("24_fh646")
+
+[node name="Label" type="Label" parent="BuildingsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.5
+offset_top = 10.0
+offset_right = 35.5
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Buildings"
+
+[node name="GridContainer" type="GridContainer" parent="BuildingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 50.0
+offset_right = -17.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="BuildingSlot" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 1
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot2" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 2
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot2/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot2/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot3" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 3
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot3/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot3/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot4" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 4
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot4/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot4/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot5" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 5
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot5/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot5/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot6" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 6
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot6"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot6/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot6/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot6"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot7" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 7
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot7"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot7/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot7/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot7"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot8" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 8
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot8"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot8/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot8/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot8"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot9" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 9
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot9"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot9/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot9/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot9"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingSlot10" type="Control" parent="BuildingsPanel/GridContainer" node_paths=PackedStringArray("buildings_panel")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("17_ysoth")
+slot_id = 10
+buildings_panel = NodePath("../..")
+
+[node name="Button" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot10"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("15_1vi8f")
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="BuildingsPanel/GridContainer/BuildingSlot10/Button"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324131
+offset_bottom = 24.251
+grow_horizontal = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/GridContainer/BuildingSlot10/Button/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 4.0
+offset_right = -0.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_nlcpk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BuildingName" type="Label" parent="BuildingsPanel/GridContainer/BuildingSlot10"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="BuildingsExit" type="Button" parent="BuildingsPanel"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324158
+offset_bottom = 24.251
+grow_horizontal = 0
+icon = ExtResource("14_jmr1l")
+expand_icon = true
+
+[node name="CataloguePanel" type="Panel" parent="BuildingsPanel" node_paths=PackedStringArray("parent")]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -375.0
+offset_right = 500.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_30mpw")
+script = ExtResource("17_hg6ps")
+parent = NodePath("../..")
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = 10.0
+offset_right = 39.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Catalogue"
+
+[node name="CatalogueExit" type="Button" parent="BuildingsPanel/CataloguePanel"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+icon = ExtResource("14_jmr1l")
+expand_icon = true
+
+[node name="TabContainer" type="TabContainer" parent="BuildingsPanel/CataloguePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 50.0
+offset_right = -20.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="General" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
+layout_mode = 2
+scroll_vertical = 328
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+
+[node name="General" type="GridContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General"]
+layout_mode = 2
+columns = 6
+
+[node name="CapitalPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Capital"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "Free"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("28_yd4vl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+50"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "+1"
+
+[node name="FarmPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Farm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("17_y7dxj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_bglff")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+75"
+
+[node name="GreenhousePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Greenhouse"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("18_hg6ps")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+75"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-2"
+
+[node name="PlantLaboratoryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/line_spacing = -5
+text = "Plant
+laboratory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "250"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("19_nf005")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+100"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-4"
+
+[node name="FactoryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Factory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "150"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("20_ysoth")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="FoundryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Foundry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "500"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("21_yd4vl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+20"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-1"
+
+[node name="PowerPlantPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Power Plant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "1000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("22_ad7ei")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+50"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-1"
+
+[node name="IronMinePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Iron Mine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "250"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("23_5jub4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+2"
+
+[node name="UraniumMinePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Uranium Mine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "400"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("24_fh646")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+2"
+
+[node name="SuperFarmPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Super farm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "300"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("29_ad7ei")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_bglff")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+200"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-5"
+
+[node name="TokamakPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Tokamak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "10 000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("34_jbvib")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+1000"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "-10"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-10"
+
+[node name="GeothermalStationPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Geothermal
+Station"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "25"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("35_balfn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_ygg7q")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="UraniumExtractorPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Uranium
+Extractor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("32_wmfi7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-2"
+
+[node name="Food" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="Food" type="GridContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food"]
+layout_mode = 2
+columns = 6
+
+[node name="FarmPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Farm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("17_y7dxj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_bglff")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+75"
+
+[node name="GreenhousePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Greenhouse"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("18_hg6ps")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+75"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-2"
+
+[node name="PlantLaboratoryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/line_spacing = -5
+text = "Plant
+laboratory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "250"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("19_nf005")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+100"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-4"
+
+[node name="SuperFarmPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Super farm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "300"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("29_ad7ei")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e66a4")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_bglff")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_ygg7q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+200"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-5"
+
+[node name="Technology" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 2
+
+[node name="Technology" type="GridContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology"]
+layout_mode = 2
+columns = 6
+
+[node name="GeothermalStationPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Geothermal
+Station"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "25"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("35_balfn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_ygg7q")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="FactoryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Factory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "150"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("20_ysoth")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="FoundryPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Foundry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "500"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("21_yd4vl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+20"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-1"
+
+[node name="PowerPlantPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Power Plant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "1000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("22_ad7ei")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+50"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-1"
+
+[node name="TokamakPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Tokamak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "10 000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("34_jbvib")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+1000"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "-10"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-10"
+
+[node name="Mining" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+
+[node name="Mining" type="GridContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining"]
+layout_mode = 2
+columns = 6
+
+[node name="IronMinePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Iron Mine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "250"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("23_5jub4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+2"
+
+[node name="UraniumMinePanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Uranium Mine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "400"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("24_fh646")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+2"
+
+[node name="UraniumExtractorPanel" type="Button" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining"]
+custom_minimum_size = Vector2(150, 325)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Uranium
+Extractor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/CostContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/CostContainer"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("32_wmfi7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requirements:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Yield:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+5"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-2"
+
+[node name="Timer" type="Timer" parent="BuildingsPanel"]
+wait_time = 0.2
+
+[node name="TradePanel" parent="." instance=ExtResource("30_5jub4")]
+visible = false
+layout_mode = 1
+
+[node name="ShipPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("35_sik3p")
+
+[node name="NamePanel" type="Panel" parent="ShipPanel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 11.91
+offset_right = 100.0
+offset_bottom = 51.91
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ShipPanel/NamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ship upgrades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 78.0
+offset_right = -33.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="Radar" type="Label" parent="ShipPanel/VBoxContainer"]
+layout_mode = 2
+text = "Radar:"
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = 19.0
+offset_right = 344.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 75
+
+[node name="Button" type="Button" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "5000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button2" type="Button" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button3" type="Button" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button4" type="Button" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "250 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button5" type="Button" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "500 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Radar/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "50 000"
+
+[node name="Thruster" type="Label" parent="ShipPanel/VBoxContainer"]
+layout_mode = 2
+text = "Thruster:"
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = 19.0
+offset_right = 344.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 75
+
+[node name="Button" type="Button" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "5000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button2" type="Button" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button3" type="Button" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button4" type="Button" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "250 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button5" type="Button" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "500 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/Thruster/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "50 000"
+
+[node name="FuelSupply" type="Label" parent="ShipPanel/VBoxContainer"]
+layout_mode = 2
+text = "Fuel supply:"
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = 19.0
+offset_right = 344.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 75
+
+[node name="Button" type="Button" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "5000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button2" type="Button" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button3" type="Button" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "500"
+
+[node name="Button4" type="Button" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "250 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "5000"
+
+[node name="Button5" type="Button" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 30.0
+offset_bottom = 52.000023
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_8ide5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "500 000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("5_11xo0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShipPanel/VBoxContainer/FuelSupply/UpgradeContainer/Button5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "50 000"
+
+[node name="ExitButton" type="Button" parent="ShipPanel"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.324158
+offset_bottom = 24.251
+grow_horizontal = 0
+icon = ExtResource("14_jmr1l")
+expand_icon = true
+
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/BuildingsButton" to="." method="_on_buildings_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/TradeButton" to="." method="_on_trade_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/MilitaryButton" to="." method="_on_military_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/ScienceButton" to="." method="_on_science_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/ShipButton" to="." method="_on_ship_button_pressed"]
+[connection signal="value_changed" from="SettingsPanel/SettingsContainer/DesiredPopulationContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="SettingsPanel/SettingsExit" to="." method="_on_settings_exit_pressed"]
+[connection signal="pressed" from="BuildingsPanel/BuildingsExit" to="." method="_on_buildings_exit_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/CatalogueExit" to="BuildingsPanel" method="_on_catalogue_exit_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/CapitalPanel" to="BuildingsPanel/CataloguePanel" method="_on_capital_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/FarmPanel" to="BuildingsPanel/CataloguePanel" method="_on_farm_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/GreenhousePanel" to="BuildingsPanel/CataloguePanel" method="_on_greenhouse_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/PlantLaboratoryPanel" to="BuildingsPanel/CataloguePanel" method="_on_plant_laboratory_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/FactoryPanel" to="BuildingsPanel/CataloguePanel" method="_on_factory_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/FoundryPanel" to="BuildingsPanel/CataloguePanel" method="_on_foundry_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/PowerPlantPanel" to="BuildingsPanel/CataloguePanel" method="_on_power_plant_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel" to="BuildingsPanel/CataloguePanel" method="_on_iron_mine_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel" to="BuildingsPanel/CataloguePanel" method="_on_uranium_mine_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/SuperFarmPanel" to="BuildingsPanel/CataloguePanel" method="_on_super_farm_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/TokamakPanel" to="BuildingsPanel/CataloguePanel" method="_on_tokamak_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/GeothermalStationPanel" to="BuildingsPanel/CataloguePanel" method="_on_geothermal_station_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumExtractorPanel" to="BuildingsPanel/CataloguePanel" method="_on_uranium_extractor_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/FarmPanel" to="BuildingsPanel/CataloguePanel" method="_on_farm_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/GreenhousePanel" to="BuildingsPanel/CataloguePanel" method="_on_greenhouse_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/PlantLaboratoryPanel" to="BuildingsPanel/CataloguePanel" method="_on_plant_laboratory_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Food/Food/SuperFarmPanel" to="BuildingsPanel/CataloguePanel" method="_on_super_farm_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/GeothermalStationPanel" to="BuildingsPanel/CataloguePanel" method="_on_geothermal_station_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FactoryPanel" to="BuildingsPanel/CataloguePanel" method="_on_factory_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/FoundryPanel" to="BuildingsPanel/CataloguePanel" method="_on_foundry_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/PowerPlantPanel" to="BuildingsPanel/CataloguePanel" method="_on_power_plant_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Technology/Technology/TokamakPanel" to="BuildingsPanel/CataloguePanel" method="_on_tokamak_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/IronMinePanel" to="BuildingsPanel/CataloguePanel" method="_on_iron_mine_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel" to="BuildingsPanel/CataloguePanel" method="_on_uranium_mine_panel_pressed"]
+[connection signal="pressed" from="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumExtractorPanel" to="BuildingsPanel/CataloguePanel" method="_on_uranium_extractor_panel_pressed"]
+[connection signal="timeout" from="BuildingsPanel/Timer" to="BuildingsPanel" method="_on_timer_timeout"]
+[connection signal="pressed" from="ShipPanel/ExitButton" to="ShipPanel" method="_on_exit_button_pressed"]

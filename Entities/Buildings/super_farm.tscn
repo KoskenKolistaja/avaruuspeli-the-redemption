@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkn6ri4s0mxyf"]
+
+[ext_resource type="Script" uid="uid://byawljep0chhg" path="res://Entities/Buildings/super_farm.gd" id="1_t0qdq"]
+
+[node name="SuperFarm" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_t0qdq")
+building_name = "super_farm"
+product_yield = {
+"Food": 200
+}
+product_cost = {
+"Technology": 5
+}

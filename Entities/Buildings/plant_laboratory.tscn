@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1txwqgd02klj"]
+
+[ext_resource type="Script" uid="uid://bnn6uqwxj86v1" path="res://Entities/Buildings/plant_laboratory.gd" id="1_kn17b"]
+
+[node name="PlantLaboratory" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_kn17b")
+building_name = "plant_laboratory"
+product_yield = {
+"Food": 100
+}
+product_cost = {
+"Technology": 4
+}

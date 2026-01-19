@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://m45lb3a0i3te"]
+
+[ext_resource type="Script" uid="uid://ncgodjdue8o0" path="res://Entities/Buildings/capital.gd" id="1_4ydmk"]
+
+[node name="Capital" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_4ydmk")
+building_name = "capital"
+product_yield = {
+"Food": 50,
+"Technology": 1
+}

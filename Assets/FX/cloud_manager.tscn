@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://brg4xs4aoulbf"]
+
+[ext_resource type="Script" uid="uid://bexlwsm7hncmb" path="res://Assets/FX/cloud_manager.gd" id="1_yja1d"]
+[ext_resource type="PackedScene" uid="uid://8x0kixkdu8xn" path="res://Assets/FX/cloud_generator.tscn" id="2_2g6db"]
+
+[node name="CloudManager" type="Node3D"]
+script = ExtResource("1_yja1d")
+cloud_particle_scene = ExtResource("2_2g6db")
+sphere_radius = 5.5
+move_speed = 0.01

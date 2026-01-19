@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ydosjomgwde"]
+
+[ext_resource type="Script" uid="uid://c0qfqjpr4orq8" path="res://Entities/Buildings/power_plant.gd" id="1_5v55k"]
+
+[node name="PowerPlant" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_5v55k")
+building_name = "power_plant"
+product_yield = {
+"Technology": 50
+}
+product_cost = {
+"Uranium": 1
+}

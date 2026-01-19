@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://4nju5xjsxhmb"]
+
+[ext_resource type="Script" uid="uid://dtxmtlm0kimxn" path="res://Entities/Planets/planet.gd" id="1_asytt"]
+[ext_resource type="Script" uid="uid://c0wwb4pc21ucl" path="res://Entities/Planets/planet_body.gd" id="2_6vn1t"]
+[ext_resource type="Script" uid="uid://cmjtdogebs500" path="res://Entities/Planets/income_handler.gd" id="3_1qwtq"]
+[ext_resource type="Script" uid="uid://bgmqitnjioby3" path="res://Entities/Planets/auto_sender.gd" id="4_mgcjh"]
+[ext_resource type="PackedScene" uid="uid://dt3pkdk3g3fgs" path="res://Entities/AI/cargo_ship.tscn" id="5_asytt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_denno"]
+radius = 5.0
+
+[node name="Planet" type="Node3D" groups=["planet"]]
+script = ExtResource("1_asytt")
+
+[node name="PlanetBody" type="StaticBody3D" parent="." groups=["planet_body"]]
+script = ExtResource("2_6vn1t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlanetBody"]
+shape = SubResource("SphereShape3D_denno")
+
+[node name="IncomeHandler" type="Node3D" parent="."]
+script = ExtResource("3_1qwtq")
+
+[node name="Label" type="Label" parent="IncomeHandler"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="IncomeHandler"]
+autostart = true
+
+[node name="PopulationTimer" type="Timer" parent="IncomeHandler"]
+autostart = true
+
+[node name="AutoSender" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_mgcjh")
+ship_scene = ExtResource("5_asytt")
+
+[node name="Timer" type="Timer" parent="AutoSender"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="IncomeHandler/Timer" to="IncomeHandler" method="_on_timer_timeout"]
+[connection signal="timeout" from="IncomeHandler/PopulationTimer" to="IncomeHandler" method="_on_population_timer_timeout"]
+[connection signal="timeout" from="AutoSender/Timer" to="AutoSender" method="_on_timer_timeout"]

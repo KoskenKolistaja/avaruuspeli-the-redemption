@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce0wnq8omlnp8"]
+
+[ext_resource type="Script" uid="uid://bsbibyfcp74kx" path="res://Entities/Buildings/geothermal_station.gd" id="1_1esod"]
+
+[node name="GeothermalStation" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_1esod")
+building_name = "geothermal_station"
+product_yield = {
+"Technology": 5
+}

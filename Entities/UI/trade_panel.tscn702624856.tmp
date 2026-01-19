@@ -1,0 +1,378 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlqsj0gh8e6or"]
+
+[ext_resource type="Texture2D" uid="uid://df4lia88n7nwt" path="res://Assets/Textures/UI Textures/Cog.png" id="1_74v1c"]
+[ext_resource type="Texture2D" uid="uid://qftnbjvup0f1" path="res://Assets/Textures/UI Textures/Ingot.png" id="2_k36b5"]
+[ext_resource type="Texture2D" uid="uid://cveeysrwxph0k" path="res://Assets/Textures/UI Textures/Military.png" id="3_i65yt"]
+[ext_resource type="Texture2D" uid="uid://i2qu4ns67dra" path="res://Assets/Textures/UI Textures/Cross.png" id="4_i65yt"]
+[ext_resource type="Texture2D" uid="uid://b1lsgjyqlgb0c" path="res://Assets/Textures/UI Textures/Food.png" id="5_118au"]
+[ext_resource type="Script" uid="uid://cfmfps4egvhdh" path="res://Entities/UI/new_trade_panel.gd" id="5_avwxq"]
+[ext_resource type="Script" uid="uid://r1cd2fcjds00" path="res://Entities/UI/rule.gd" id="6_l8s47"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5chpv"]
+load_path = "res://.godot/imported/UIpack_vector.svg-3417e0ddf32eef45a1009385661fe98b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74v1c"]
+texture = SubResource("CompressedTexture2D_5chpv")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(485, 310, 100, 100)
+modulate_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74v1c"]
+load_path = "res://.godot/imported/UIpack_vector.svg-3417e0ddf32eef45a1009385661fe98b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrmob"]
+texture = SubResource("CompressedTexture2D_74v1c")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(485, 310, 100, 100)
+modulate_color = Color(0.8217887, 0.82178867, 0.82178867, 1)
+
+[node name="TradePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 19.0
+offset_right = 55.0
+offset_bottom = 37.0
+grow_horizontal = 2
+text = "Trade Panel"
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 47.0
+offset_right = -21.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_74v1c")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TradeContainer" type="VBoxContainer" parent="Panel/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TradePanel" type="Panel" parent="Panel/Panel/MarginContainer/TradeContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qrmob")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_74v1c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.88, 0.88, 0.88, 1)
+text = "500"
+placeholder_text = "500"
+
+[node name="Label2" type="Label" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "to"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Mingion"
+popup/item_0/icon = ExtResource("2_k36b5")
+popup/item_0/id = 0
+popup/item_1/text = "Xebion 12"
+popup/item_1/icon = ExtResource("3_i65yt")
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("4_i65yt")
+expand_icon = true
+
+[node name="TradePanel2" type="Panel" parent="Panel/Panel/MarginContainer/TradeContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qrmob")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_74v1c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.88, 0.88, 0.88, 1)
+text = "500"
+placeholder_text = "500"
+
+[node name="Label2" type="Label" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "to"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Mingion"
+popup/item_0/icon = ExtResource("2_k36b5")
+popup/item_0/id = 0
+popup/item_1/text = "Xebion 12"
+popup/item_1/icon = ExtResource("3_i65yt")
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("4_i65yt")
+expand_icon = true
+
+[node name="TradePanel3" type="Panel" parent="Panel/Panel/MarginContainer/TradeContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qrmob")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_74v1c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.88, 0.88, 0.88, 1)
+text = "500"
+placeholder_text = "500"
+
+[node name="Label2" type="Label" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "to"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Mingion"
+popup/item_0/icon = ExtResource("2_k36b5")
+popup/item_0/id = 0
+popup/item_1/text = "Xebion 12"
+popup/item_1/icon = ExtResource("3_i65yt")
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="Panel/Panel/MarginContainer/TradeContainer/TradePanel3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("4_i65yt")
+expand_icon = true
+
+[node name="NewTradePanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_avwxq")
+
+[node name="Label" type="Label" parent="NewTradePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_top = 13.0
+offset_right = 46.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "New Trade"
+
+[node name="RuleContainer" type="VBoxContainer" parent="NewTradePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rule" type="HBoxContainer" parent="NewTradePanel/RuleContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("6_l8s47")
+
+[node name="OptionButton" type="OptionButton" parent="NewTradePanel/RuleContainer/Rule"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Sender has"
+popup/item_0/id = 0
+popup/item_1/text = "Receiver has"
+popup/item_1/id = 1
+
+[node name="OptionButton2" type="OptionButton" parent="NewTradePanel/RuleContainer/Rule"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "less than"
+popup/item_0/id = 0
+popup/item_1/text = "exactly"
+popup/item_1/id = 1
+popup/item_2/text = "more than"
+popup/item_2/id = 2
+
+[node name="SpinBox" type="SpinBox" parent="NewTradePanel/RuleContainer/Rule"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="OptionButton3" type="OptionButton" parent="NewTradePanel/RuleContainer/Rule"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+expand_icon = true
+item_count = 3
+popup/item_0/icon = ExtResource("1_74v1c")
+popup/item_0/id = 0
+popup/item_1/icon = ExtResource("5_118au")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("2_k36b5")
+popup/item_2/id = 2
+
+[node name="Button" type="Button" parent="NewTradePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.162064
+offset_top = -42.251
+offset_right = 48.162064
+grow_horizontal = 2
+grow_vertical = 0
+text = "assign"
+
+[node name="OptionButton" type="OptionButton" parent="NewTradePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.661987
+offset_top = -123.0
+offset_right = 25.66217
+offset_bottom = -88.74899
+grow_horizontal = 2
+grow_vertical = 0
+item_count = 1
+popup/item_0/id = 0

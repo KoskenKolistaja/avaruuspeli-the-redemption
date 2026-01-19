@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=3 uid="uid://372cwiqlmyrk"]
+
+[ext_resource type="Texture2D" uid="uid://bhud4mgusa5uq" path="res://Assets/Textures/Sky/8k_stars_milky_way.jpg" id="1_dhupp"]
+[ext_resource type="PackedScene" uid="uid://4nju5xjsxhmb" path="res://Entities/Planets/planet.tscn" id="2_x3nny"]
+[ext_resource type="PackedScene" uid="uid://djexg4v384ove" path="res://Entities/UI/planet_page.tscn" id="3_ormkk"]
+[ext_resource type="PackedScene" uid="uid://8f5b0k70rwev" path="res://Entities/Player/player.tscn" id="4_rfnn0"]
+[ext_resource type="Texture2D" uid="uid://buj33sr1tjnhh" path="res://Assets/Textures/UI Textures/UISphere.png" id="5_aujwv"]
+[ext_resource type="PackedScene" uid="uid://brmeou56iqk17" path="res://Entities/Planets/Visuals/green_planet.tscn" id="5_pu55j"]
+[ext_resource type="Texture2D" uid="uid://dh1jshmsw4bc7" path="res://Assets/Textures/UI Textures/UIBox.png" id="6_pu55j"]
+[ext_resource type="PackedScene" uid="uid://cl41ymny7nbsv" path="res://Entities/Planets/Visuals/ice_planet.tscn" id="7_rl073"]
+[ext_resource type="Texture2D" uid="uid://b3ft1fht7dx4o" path="res://Assets/Textures/UI Textures/SpeechBubble.png" id="9_rl073"]
+[ext_resource type="Texture2D" uid="uid://du85jgw8i742a" path="res://Assets/Textures/UI Textures/Ammo.png" id="10_pu75q"]
+[ext_resource type="Texture2D" uid="uid://bo56i7frnidqw" path="res://Assets/Textures/UI Textures/Tube.png" id="11_wgg4r"]
+[ext_resource type="Texture2D" uid="uid://dw2j2jrqffb14" path="res://Assets/Textures/UI Textures/SpaceShip.png" id="12_6rlf0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mhjb5"]
+panorama = ExtResource("1_dhupp")
+
+[sub_resource type="Sky" id="Sky_dhupp"]
+sky_material = SubResource("PanoramaSkyMaterial_mhjb5")
+
+[sub_resource type="Environment" id="Environment_x3nny"]
+background_mode = 2
+sky = SubResource("Sky_dhupp")
+
+[node name="Space" type="Node3D" groups=["space"]]
+
+[node name="Ambient" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Ambient"]
+environment = SubResource("Environment_x3nny")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ambient"]
+transform = Transform3D(0.32936686, 0.6407397, -0.69352007, -0.27487615, 0.7677582, 0.5787836, 0.90330535, 0, 0.42899817, 0, 0, 0)
+
+[node name="PlanetPage" parent="." instance=ExtResource("3_ormkk")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("4_rfnn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.813, 11.596, 0)
+acceleration = 15.0
+
+[node name="Planet" parent="." instance=ExtResource("2_x3nny")]
+planet_visual = ExtResource("5_pu55j")
+size = 10.0
+planet_id = 1
+planet_icon = ExtResource("5_aujwv")
+atmosphere = true
+warm = true
+
+[node name="Planet2" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 2
+planet_name = "Mingion"
+planet_icon = ExtResource("6_pu55j")
+has_uranium = true
+
+[node name="Planet3" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 31, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 3
+planet_name = "Pluto II"
+planet_icon = ExtResource("9_rl073")
+atmosphere = true
+has_iron = true
+
+[node name="Planet4" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59, -42, 0)
+planet_visual = ExtResource("7_rl073")
+size = 15.0
+planet_id = 4
+planet_name = "Tawara"
+planet_icon = ExtResource("10_pu75q")
+hot = true
+
+[node name="Planet5" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, -33, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 5
+planet_name = "Mez IV"
+planet_icon = ExtResource("11_wgg4r")
+atmosphere = true
+has_iron = true
+
+[node name="Planet6" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, 60, 0)
+planet_visual = ExtResource("5_pu55j")
+size = 7.0
+planet_id = 6
+planet_name = "CT 566"
+planet_icon = ExtResource("12_6rlf0")
+atmosphere = true
+warm = true
+has_iron = true
+
+[node name="Planet7" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -333.392, 167.96613, 0)
+planet_visual = ExtResource("5_pu55j")
+size = 10.0
+planet_id = 10
+planet_name = "Stell"
+planet_icon = ExtResource("5_aujwv")
+atmosphere = true
+hot = true
+has_uranium = true
+
+[node name="Planet8" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -389.68365, 200.46613, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 9
+planet_name = "Menzin"
+planet_icon = ExtResource("6_pu55j")
+hot = true
+
+[node name="Planet9" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -412.23877, 93.399475, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 11
+planet_name = "Pluto III"
+planet_icon = ExtResource("9_rl073")
+atmosphere = true
+has_iron = true
+
+[node name="Planet10" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -326.51892, 95.87063, 0)
+planet_visual = ExtResource("7_rl073")
+size = 15.0
+planet_id = 12
+planet_name = "Manzer"
+planet_icon = ExtResource("10_pu75q")
+has_iron = true
+
+[node name="Planet11" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -252.31314, 242.3988, 0)
+planet_visual = ExtResource("7_rl073")
+size = 5.0
+planet_id = 8
+planet_name = "Sezer"
+planet_icon = ExtResource("11_wgg4r")
+atmosphere = true
+
+[node name="Planet12" parent="." instance=ExtResource("2_x3nny")]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -332.85352, 288.8988, 0)
+planet_visual = ExtResource("5_pu55j")
+size = 7.0
+planet_id = 7
+planet_name = "Cocio"
+planet_icon = ExtResource("12_6rlf0")
+atmosphere = true
+has_iron = true

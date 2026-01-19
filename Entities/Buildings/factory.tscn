@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://yo2ujalx0o4x"]
+
+[ext_resource type="Script" uid="uid://tqm41qxlghcx" path="res://Entities/Buildings/factory.gd" id="1_s8wna"]
+
+[node name="Factory" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_s8wna")
+building_name = "factory"
+product_yield = {
+"Technology": 5
+}

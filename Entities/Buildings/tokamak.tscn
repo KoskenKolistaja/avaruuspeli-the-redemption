@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3sskdg6xp70g"]
+
+[ext_resource type="Script" uid="uid://djtoja4bwm61l" path="res://Entities/Buildings/tokamak.gd" id="1_nmvhe"]
+
+[node name="Tokamak" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_nmvhe")
+building_name = "tokamak"
+product_yield = {
+"Technology": 1000
+}
+product_cost = {
+"Iron": 10,
+"Uranium": 10
+}

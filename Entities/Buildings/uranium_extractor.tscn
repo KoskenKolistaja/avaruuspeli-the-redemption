@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbm20p3i7vvea"]
+
+[ext_resource type="Script" uid="uid://bcgeldjb0mb68" path="res://Entities/Buildings/uranium_extractor.gd" id="1_6xnph"]
+
+[node name="UraniumExtractor" type="Node3D" groups=["productive_building"]]
+script = ExtResource("1_6xnph")
+building_name = "uranium_extractor"
+product_yield = {
+"Uranium": 5
+}
+product_cost = {
+"Iron": 2
+}
