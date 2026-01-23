@@ -90,6 +90,7 @@ func start_game() -> void:
 func _on_peer_connected(id: int):
 	print("Peer connected: ", id)
 	# (Server Only) We don't do anything yet, we wait for them to send their info via RPC
+	$VBoxContainer/StartButton.show()
 
 # Called on Clients when they successfully connect to Server
 func _on_connected_to_server():
@@ -147,7 +148,11 @@ func _on_host_button_pressed():
 
 func _on_join_button_pressed():
 	# Assuming you have a LineEdit node named "IPInput"
-	var ip = $UI/IPInput.text 
+	var ip = %IPInput.text
+	
+	if ip == "":
+		ip = "localhost"
+	
 	join_game(ip)
 
 func _on_start_game_button_pressed():
@@ -157,3 +162,7 @@ func _update_lobby_ui(status_message: String):
 	# Example: Update a status label
 	if has_node("UI/StatusLabel"):
 		$UI/StatusLabel.text = status_message
+
+
+func _on_start_button_pressed():
+	start_game()

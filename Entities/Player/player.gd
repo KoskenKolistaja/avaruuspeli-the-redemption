@@ -51,6 +51,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		target_zoom = clamp(target_zoom, min_zoom, max_zoom)
 
 func _physics_process(delta: float) -> void:
+	
+	if not is_multiplayer_authority():
+		return
+	
 	handle_rotation(delta)
 	handle_thrust(delta)
 	handle_camera_zoom(delta) # <--- New Function Call
