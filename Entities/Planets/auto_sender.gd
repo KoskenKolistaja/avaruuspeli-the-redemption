@@ -13,7 +13,13 @@ var shipment_dictionary_example : Dictionary = {
 		1: {"subject": 1, "resource": "food", "condition": ">", "amount": 5},
 		2: {"subject": 2, "resource": "food", "condition": "<", "amount": 50000}
 	},
-	"cargo": {"resource": "food", "amount": 100}
+	"cargo": {
+		"population" : 0,
+		"food" : 100,
+		"technology" : 0,
+		"iron" : 0,
+		"uranium" : 0,
+		}
 }
 
 var shipment_dictionary_example2 : Dictionary = {
@@ -23,7 +29,13 @@ var shipment_dictionary_example2 : Dictionary = {
 		1: {"subject": 1, "resource": "food", "condition": ">", "amount": 5},
 		2: {"subject": 2, "resource": "food", "condition": "<", "amount": 50000}
 	},
-	"cargo": {"resource": "food", "amount": 100}
+	"cargo": {
+		"population" : 0,
+		"food" : 100,
+		"technology" : 0,
+		"iron" : 0,
+		"uranium" : 0,
+		}
 }
 
 
@@ -53,6 +65,8 @@ func _ready():
 func assing_new_shipment(exported_shipment_dictionary):
 	shipment_dictionaries.append(exported_shipment_dictionary)
 
+func assing_new_trade(exported_trade_dictionary):
+	trade_dictionaries.append(exported_trade_dictionary)
 
 func get_shipment_dictionaries():
 	return shipment_dictionaries
@@ -167,20 +181,30 @@ func is_cargo_sendable(shipment_data: Dictionary) -> bool:
 		print("[Error] Cargo Check Failed: Sender planet %s does not exist." % sender_id)
 		return false
 	
-	var resource_name = shipment_data["cargo"]["resource"]
-	var required_amount = shipment_data["cargo"]["amount"]
-	var current_amount = planet.get(resource_name)
 	
-	# Safety check for null resources
-	if current_amount == null:
-		print("[Error] Cargo Check Failed: Sender %s does not have a property/variable named '%s'." % [sender_id, resource_name])
-		return false
+	for key in shipment_data["cargo"]:
+		var resource_name = key
+		var required_amount = shipment_data["cargo"][key]
+		var current_amount = planet.get(resource_name)
+		
+		
+		if required_amount == 0:
+			continue
+		
+		# Safety check for null resources
+		if current_amount == null:
+			print("[Error] Cargo Check Failed: Sender %s does not have a property/variable named '%s'." % [sender_id, resource_name])
+			return false
+		
+		if current_amount >= required_amount:
+			return true
+		else:
+			print("[Fail] Cargo Check Failed: Sender %s has %s '%s', needs %s." % [sender_id, current_amount, resource_name, required_amount])
+			return false
 	
-	if current_amount >= required_amount:
-		return true
-	else:
-		print("[Fail] Cargo Check Failed: Sender %s has %s '%s', needs %s." % [sender_id, current_amount, resource_name, required_amount])
-		return false
+	return true
+
+
 
 func check_rules(exported_rules: Dictionary) -> bool:
 	for rule_key in exported_rules:
@@ -225,18 +249,20 @@ func send_ship(shipment_data: Dictionary) -> void:
 	
 	# --- 1. DEDUCT RESOURCES ---
 	var sender_planet = PlanetData.get_planet(shipment_data["sender_id"])
-	var resource_name = shipment_data["cargo"]["resource"]
-	var amount = shipment_data["cargo"]["amount"]
 	
-	var current_sender_amount = sender_planet.get(resource_name)
-	sender_planet.set(resource_name, current_sender_amount - amount)
-	
-	# Print deduction for verification
-	print("[Log] Deducted %s '%s' from Sender %s. New Balance: %s" % [amount, resource_name, shipment_data["sender_id"], current_sender_amount - amount])
+	for key in shipment_data["cargo"]:
+		var resource_name = key
+		var amount = shipment_data["cargo"][key]
+		
+		var current_sender_amount = sender_planet.get(resource_name)
+		sender_planet.set(resource_name, current_sender_amount - amount)
+		# Print deduction for verification
+		print("[Log] Deducted %s '%s' from Sender %s. New Balance: %s" % [amount, resource_name, shipment_data["sender_id"], current_sender_amount - amount])
 	
 	# --- 2. SPAWN SHIP ---
 	var ship_instance = ship_scene.instantiate()
-	ship_instance.set(resource_name, amount)
+	print(shipment_data["cargo"])
+	ship_instance.set_cargo(shipment_data["cargo"])
 	ship_instance.receiver = PlanetData.get_planet(shipment_data["receiver_id"])
 	add_child(ship_instance)
 	ship_instance.global_position = sender_planet.global_position
@@ -250,18 +276,19 @@ func send_trade_ship(shipment_data: Dictionary) -> void:
 	
 	# --- 1. DEDUCT RESOURCES ---
 	var sender_planet = PlanetData.get_planet(shipment_data["sender_id"])
-	var resource_name = shipment_data["cargo"]["resource"]
-	var amount = shipment_data["cargo"]["amount"]
 	
-	var current_sender_amount = sender_planet.get(resource_name)
-	sender_planet.set(resource_name, current_sender_amount - amount)
-	
-	# Print deduction for verification
-	print("[Log] Deducted %s '%s' from Sender %s. New Balance: %s" % [amount, resource_name, shipment_data["sender_id"], current_sender_amount - amount])
+	for key in shipment_data["cargo"]:
+		var resource_name = key
+		var amount = shipment_data["cargo"][key]
+		
+		var current_sender_amount = sender_planet.get(resource_name)
+		sender_planet.set(resource_name, current_sender_amount - amount)
+		# Print deduction for verification
+		print("[Log] Deducted %s '%s' from Sender %s. New Balance: %s" % [amount, resource_name, shipment_data["sender_id"], current_sender_amount - amount])
 	
 	# --- 2. SPAWN SHIP ---
 	var ship_instance = ship_scene.instantiate()
-	ship_instance.set(resource_name, amount)
+	ship_instance.set_cargo(shipment_data["cargo"])
 	ship_instance.is_trade_ship = true
 	ship_instance.receiver = PlanetData.get_planet(shipment_data["receiver_id"])
 	add_child(ship_instance)
@@ -271,5 +298,8 @@ func send_trade_ship(shipment_data: Dictionary) -> void:
 
 
 func _on_trade_timer_timeout():
-	if test:
-		request_send_trade(trade_dictionary_example)
+	for item in trade_dictionaries:
+		var planet_id = get_parent().planet_id
+		var validator_planet_id = item["validator_planet_id"]
+		if planet_id == validator_planet_id:
+			request_send_trade(item)

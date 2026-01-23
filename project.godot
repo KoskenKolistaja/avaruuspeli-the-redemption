@@ -13,12 +13,15 @@ config_version=5
 config/name="Avaruuspeli The Redemption"
 run/main_scene="uid://372cwiqlmyrk"
 config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="uid://dw2j2jrqffb14"
 
 [autoload]
 
 BuildingData="*res://DataManagement/BuildingData.gd"
 PlanetData="*res://DataManagement/PlanetData.gd"
 MetaData="*res://DataManagement/MetaData.gd"
+PlayerData="*res://DataManagement/PlayerData.gd"
+TradeData="*res://DataManagement/TradeData.gd"
 
 [global_group]
 

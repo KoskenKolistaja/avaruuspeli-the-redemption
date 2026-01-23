@@ -5,9 +5,6 @@ extends HBoxContainer
 
 
 
-
-
-
 func applies() -> bool:
 	if $SubjectButton.selected == -1:
 		return false

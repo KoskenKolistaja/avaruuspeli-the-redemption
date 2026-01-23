@@ -52,16 +52,13 @@ func set_icon():
 
 func get_biggest_resource() -> String:
 	var dic = {"population" : population , "food" : food , "technology" : technology , "iron" : iron , "uranium" : uranium} 
-	
 	var biggest = "population"
-	
 	for key in dic:
 		var biggest_number = dic[biggest]
 		var current_number = dic[key]
 		
 		if current_number > biggest_number:
 			biggest = key
-	
 	return biggest
 
 
@@ -84,6 +81,21 @@ func rotate_toward_direction(direction: Vector3):
 	direction = direction.normalized()
 	var angle = atan2(direction.y, direction.x)
 	rotation.z = angle + deg_to_rad(-90)
+
+var cargo_dic_example = {
+	"population" : 0,
+	"food" : 100,
+	"technology" : 0,
+	"iron" : 0,
+	"uranium" : 0,
+	}
+
+func set_cargo(c : Dictionary):
+	population = c["population"]
+	food = c["food"]
+	technology = c["technology"]
+	iron = c["iron"]
+	uranium = c["uranium"]
 
 
 func send_resources():

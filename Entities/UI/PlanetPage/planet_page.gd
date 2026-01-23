@@ -38,8 +38,8 @@ func _physics_process(delta):
 func assign_new_shipment(exported_dictionary):
 	planet.assign_new_shipment(exported_dictionary)
 
-func request_buy_building(slot_id : int , building_name : String , catalogue_panel):
-	planet.request_buy_building(slot_id,building_name,catalogue_panel)
+func request_buy_building(slot_id : int , building_name : String):
+	planet.request_buy_building(slot_id,building_name)
 
 func request_delete_building(slot_id):
 	planet.delete_existing_building(slot_id)
@@ -55,6 +55,29 @@ func update_base():
 	update_name()
 	update_traits()
 	update_resources()
+	update_owner()
+
+
+
+func update_owner():
+	var owner_id = planet.owner_id
+	if owner_id == PlayerData.my_id:
+		$PlanetPanel/OwnerName.hide()
+		show_buttons()
+	else:
+		var owner_name = PlayerData.player_names[owner_id]
+		$PlanetPanel/OwnerName.text = "Governor: " + owner_name
+		$PlanetPanel/OwnerName.show()
+		hide_buttons()
+
+func hide_buttons():
+	for b in $%ButtonContainer.get_children():
+		b.hide()
+
+func show_buttons():
+	for b in $%ButtonContainer.get_children():
+		b.show()
+
 
 func update_name():
 	$PlanetPanel/PlanetNameLabel.text = str(planet.planet_name)

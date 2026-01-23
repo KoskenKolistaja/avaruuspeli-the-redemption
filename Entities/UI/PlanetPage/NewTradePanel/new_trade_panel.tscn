@@ -1,0 +1,1473 @@
+[gd_scene load_steps=11 format=3 uid="uid://csabn53iqg0hn"]
+
+[ext_resource type="Script" uid="uid://dcydky8wgge3w" path="res://Entities/UI/PlanetPage/NewTradePanel/new_trade_panel.gd" id="1_ph3f4"]
+[ext_resource type="Script" uid="uid://dng1gh326fcuj" path="res://Entities/UI/PlanetPage/NewTradePanel/rule_panel.gd" id="2_ljxo8"]
+[ext_resource type="Script" uid="uid://bqtd5lu5wnqda" path="res://Entities/UI/PlanetPage/NewTradePanel/rule_container.gd" id="2_swq3k"]
+[ext_resource type="Texture2D" uid="uid://i2qu4ns67dra" path="res://Assets/Textures/UI Textures/Cross.png" id="3_swq3k"]
+[ext_resource type="Script" uid="uid://clul3jowixthj" path="res://Entities/UI/PlanetPage/NewTradePanel/item_panel.gd" id="5_6nmy5"]
+[ext_resource type="Script" uid="uid://b3gftqb8ycg86" path="res://Entities/UI/PlanetPage/NewTradePanel/item_container.gd" id="5_ja8jy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwhrf"]
+load_path = "res://.godot/imported/UIpack_vector.svg-3417e0ddf32eef45a1009385661fe98b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqrtq"]
+texture = SubResource("CompressedTexture2D_wwhrf")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(485, 310, 100, 100)
+modulate_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ja8jy"]
+load_path = "res://.godot/imported/UIpack_vector.svg-3417e0ddf32eef45a1009385661fe98b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihoo1"]
+texture = SubResource("CompressedTexture2D_ja8jy")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(485, 310, 100, 100)
+modulate_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+
+[node name="NewTradePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ph3f4")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1300, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 16.0
+offset_right = 46.0
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "NEW TRADE"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="YourPanel" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "You"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "PLanet:"
+
+[node name="YourPlanetsOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConditionsPanel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConditionsLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_top = 8.0
+offset_right = 44.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Conditions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aqrtq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="YourRulesContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_swq3k")
+
+[node name="Rule" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule2" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule3" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule4" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule5" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AddConditionButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "+add condition"
+
+[node name="ItemsPanel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_top = 8.0
+offset_right = 44.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Your Items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aqrtq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="YourItemsContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_ja8jy")
+
+[node name="Item" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item2" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item3" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item4" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item5" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item6" type="Panel" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AddItemButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "+add item"
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = -12.0
+offset_bottom = -491.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ihoo1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InfoLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/Panel/Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AcceptButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "accept"
+
+[node name="SendButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Send"
+
+[node name="DenyButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "deny"
+
+[node name="ResetButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "reset"
+
+[node name="CounterOfferButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Counter offer"
+
+[node name="CancelButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+text = "cancel"
+
+[node name="TheirPanel" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Player:"
+
+[node name="PlayersOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "PLanet:"
+
+[node name="TheirPlanetsOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer3/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConditionsPanel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConditionsLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_top = 8.0
+offset_right = 44.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Conditions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aqrtq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="TheirRulesContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_swq3k")
+
+[node name="Rule" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule2" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule3" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule4" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule5" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_ljxo8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+
+[node name="ConditionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "More than"
+popup/item_0/id = 0
+popup/item_1/text = "Exactly"
+popup/item_1/id = 1
+popup/item_2/text = "Less than"
+popup/item_2/id = 2
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100000.0
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AddConditionButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "+add condition"
+
+[node name="ItemsPanel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_top = 8.0
+offset_right = 44.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Your Items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aqrtq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="TheirItemsContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_ja8jy")
+
+[node name="Item" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item2" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item3" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item4" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item5" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Item6" type="Panel" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("5_6nmy5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer"]
+layout_mode = 2
+
+[node name="ResourceButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 24
+
+[node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+icon = ExtResource("3_swq3k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AddItemButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "+add item"
+
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer/YourPlanetsOptionButton" to="." method="_on_your_planets_option_button_item_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule2" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule3" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule4" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/YourPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/YourRulesContainer/Rule5" method="_on_amount_value_changed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer/PlayersOptionButton" to="." method="_on_players_option_button_item_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer3/HBoxContainer/TheirPlanetsOptionButton" to="." method="_on_their_planets_option_button_item_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule2" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule3" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule4" method="_on_amount_value_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer/ResourceButton" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5" method="_on_resource_button_item_selected"]
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5/MarginContainer/HBoxContainer/Amount" to="Panel/MarginContainer/HBoxContainer/TheirPanel/ConditionsPanel/MarginContainer/Panel/ScrollContainer/TheirRulesContainer/Rule5" method="_on_amount_value_changed"]

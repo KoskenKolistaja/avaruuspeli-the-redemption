@@ -58,12 +58,22 @@ func parse_rules():
 	if resource_name == "":
 		print("Error: Resource name is empty! Check your OptionButton items.")
 		return
-
-	shipment_packet["cargo"] = {
-		"resource": resource_name.to_lower(), 
-		"amount": int($CargoContainer/SpinBox.value)
+	
+	
+	var dic = {
+		"population" : 0,
+		"food" : 0,
+		"technology" : 0,
+		"iron" : 0,
+		"uranium" : 0
 	}
-
+	
+	
+	
+	dic[resource_name.to_lower()] = int($CargoContainer/SpinBox.value)
+	
+	shipment_packet["cargo"] = dic
+	
 	print("Sending Packet:", shipment_packet)
 	get_parent().assign_new_shipment(shipment_packet)
 	queue_free()

@@ -13,7 +13,7 @@ func _ready():
 
 
 func request_buy_building(slot_id : int , building_name : String):
-	parent.request_buy_building(slot_id,building_name,self)
+	parent.request_buy_building(slot_id,building_name)
 
 
 

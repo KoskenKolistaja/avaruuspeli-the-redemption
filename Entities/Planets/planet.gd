@@ -73,7 +73,8 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	PlanetData.assign_planet(planet_id,planet_name,self)
 	
-
+	if owner_id == 999:
+		setup_npc()
 
 
 func set_owner_id(exported_id):
@@ -100,26 +101,48 @@ func get_auto_sender():
 func assign_new_shipment(exported_shipment_dictionary):
 	%AutoSender.assing_new_shipment(exported_shipment_dictionary)
 
+
+#Passing function
+func assign_new_trade(exported_trade_dictionary):
+	%AutoSender.assing_new_trade(exported_trade_dictionary)
+
+
 #Passing function
 func request_delete_shipment(exported_index):
 	%AutoSender.delete_shipment(exported_index)
 
 
+func setup_npc():
+	technology = 30000
+	desired_population = 550
+	population = 550
+	buy_npc_buildings()
+
+func buy_npc_buildings():
+	var buildings = {
+		1 : "super_farm",
+		2 : "super_farm",
+		3 : "super_farm",
+		4 : "iron_mine",
+		5 : "iron_mine",
+		6 : "iron_mine",
+		7 : "iron_mine",
+		8 : "iron_mine",
+		9: "uranium_extractor",
+		10: "power_plant",
+		11: "foundry"
+		}
+	
+	for key in buildings:
+		request_buy_building(key,buildings[key])
+
+
 #Action function
-func request_buy_building(slot_id : int , building_name : String , catalogue_panel : Control):
-	
-	
+func request_buy_building(slot_id : int , building_name : String):
 	if building_name == "none":
 		delete_existing_building(slot_id)
 		return
-	
-	
 	var purchase_valid = _is_building_purchasable(building_name)
-	
-	
-	#print("---[Time: " + str(Time.get_ticks_msec()) + "]---" + "\n")
-	#print("slot_id is: " + str(slot_id))
-	
 	if purchase_valid:
 		delete_existing_building(slot_id)
 		print("Building name is: " + building_name)
@@ -136,11 +159,7 @@ func request_buy_building(slot_id : int , building_name : String , catalogue_pan
 		print("Purchase was valid")
 	else:
 		print("Purchase was not valid")
-	
-	#print("Buildings after buy function: " + str(get_buildings()))
-	print(" ")
-	print(" ")
-	
+
 
 #Action function
 func delete_existing_building(slot_id : int):

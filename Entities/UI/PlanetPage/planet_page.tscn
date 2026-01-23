@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=3 uid="uid://djexg4v384ove"]
 
-[ext_resource type="Script" uid="uid://2rd6vl5ymmo" path="res://Entities/UI/planet_page.gd" id="1_11xo0"]
+[ext_resource type="Script" uid="uid://2rd6vl5ymmo" path="res://Entities/UI/PlanetPage/planet_page.gd" id="1_11xo0"]
 [ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://Assets/Themes/FlatUI4/kenneyUI-blue.tres" id="1_30mpw"]
 [ext_resource type="Texture2D" uid="uid://cbaf4lwbmehpr" path="res://Assets/Textures/UI Textures/Traits/Atmosphere.png" id="1_e66a4"]
 [ext_resource type="Texture2D" uid="uid://625f20a6m2ys" path="res://Assets/Textures/UI Textures/Traits/Sun.png" id="2_bglff"]
@@ -20,10 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://i2qu4ns67dra" path="res://Assets/Textures/UI Textures/Cross.png" id="14_jmr1l"]
 [ext_resource type="Texture2D" uid="uid://c7aivfibd2fjb" path="res://Assets/Textures/UI Textures/Plus.png" id="15_1vi8f"]
 [ext_resource type="Texture2D" uid="uid://bc0jmfo43d6h1" path="res://Assets/Textures/UI Textures/Agent.png" id="15_vlxa7"]
-[ext_resource type="Script" uid="uid://b2fwwaq5x8vn" path="res://Entities/UI/buildings_panel.gd" id="16_nf005"]
-[ext_resource type="Script" uid="uid://bvjgb8uff4p5k" path="res://Entities/UI/catalogue_panel.gd" id="17_hg6ps"]
+[ext_resource type="Script" uid="uid://b2fwwaq5x8vn" path="res://Entities/UI/PlanetPage/buildings_panel.gd" id="16_nf005"]
+[ext_resource type="Script" uid="uid://bvjgb8uff4p5k" path="res://Entities/UI/PlanetPage/catalogue_panel.gd" id="17_hg6ps"]
 [ext_resource type="Texture2D" uid="uid://djoq7uf4i5hpc" path="res://Assets/Textures/UI Textures/Buildings/Farm.png" id="17_y7dxj"]
-[ext_resource type="Script" uid="uid://qjchpbskf2kw" path="res://Entities/UI/building_slot.gd" id="17_ysoth"]
+[ext_resource type="Script" uid="uid://qjchpbskf2kw" path="res://Entities/UI/PlanetPage/building_slot.gd" id="17_ysoth"]
 [ext_resource type="Texture2D" uid="uid://ddyxwqusspxr2" path="res://Assets/Textures/UI Textures/Buildings/Greenhouse.png" id="18_hg6ps"]
 [ext_resource type="Texture2D" uid="uid://b4a2ewa74oxrw" path="res://Assets/Textures/UI Textures/Buildings/PlantLaboratory.png" id="19_nf005"]
 [ext_resource type="Texture2D" uid="uid://buj33sr1tjnhh" path="res://Assets/Textures/UI Textures/UISphere.png" id="19_v55uj"]
@@ -34,12 +34,12 @@
 [ext_resource type="Texture2D" uid="uid://csu81eqms08yc" path="res://Assets/Textures/UI Textures/Buildings/UraniumMine.png" id="24_fh646"]
 [ext_resource type="Texture2D" uid="uid://c6i1livypv0nf" path="res://Assets/Textures/UI Textures/Buildings/Capital.png" id="28_yd4vl"]
 [ext_resource type="Texture2D" uid="uid://ba7pb0tp54fyj" path="res://Assets/Textures/UI Textures/Buildings/SuperFarm.png" id="29_ad7ei"]
-[ext_resource type="PackedScene" uid="uid://dlqsj0gh8e6or" path="res://Entities/UI/trade_panel.tscn" id="30_5jub4"]
+[ext_resource type="PackedScene" uid="uid://dlqsj0gh8e6or" path="res://Entities/UI/PlanetPage/trade_panel.tscn" id="30_5jub4"]
 [ext_resource type="Texture2D" uid="uid://coc8ok6nhfix0" path="res://Assets/Textures/UI Textures/Buildings/UraniumExtractor.png" id="32_wmfi7"]
 [ext_resource type="Texture2D" uid="uid://b8wv31g1eujg6" path="res://Assets/Textures/UI Textures/TrashCan.png" id="33_nlcpk"]
 [ext_resource type="Texture2D" uid="uid://bimh5afcn74fl" path="res://Assets/Textures/UI Textures/Buildings/Tokamak.png" id="34_jbvib"]
 [ext_resource type="Texture2D" uid="uid://dl3g1a6tsni8o" path="res://Assets/Textures/UI Textures/Buildings/GeothermalStation.png" id="35_balfn"]
-[ext_resource type="Script" uid="uid://cf6326cr2lc1f" path="res://Entities/UI/ship_panel.gd" id="35_sik3p"]
+[ext_resource type="Script" uid="uid://cf6326cr2lc1f" path="res://Entities/UI/PlanetPage/ship_panel.gd" id="35_sik3p"]
 
 [node name="PlanetPage" type="Control" groups=["planet_page"]]
 layout_mode = 3
@@ -88,12 +88,12 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="TraitContainer" type="GridContainer" parent="PlanetPanel/PlanetContents"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 columns = 4
 
 [node name="Atmosphere" type="TextureRect" parent="PlanetPanel/PlanetContents/TraitContainer"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_e66a4")
@@ -136,6 +136,8 @@ texture = ExtResource("5_11xo0")
 expand_mode = 1
 
 [node name="ButtonContainer" type="GridContainer" parent="PlanetPanel/PlanetContents"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
 columns = 4
 
@@ -339,6 +341,21 @@ text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="OwnerName" type="Label" parent="PlanetPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -67.229996
+offset_right = 47.5
+offset_bottom = -49.22989
+grow_horizontal = 2
+grow_vertical = 2
+text = "Governor: "
+
 [node name="SettingsPanel" type="Panel" parent="."]
 visible = false
 custom_minimum_size = Vector2(500, 300)
@@ -406,6 +423,7 @@ icon = ExtResource("14_jmr1l")
 expand_icon = true
 
 [node name="BuildingsPanel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 1
 anchors_preset = 8

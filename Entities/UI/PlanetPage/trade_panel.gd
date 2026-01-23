@@ -2,8 +2,10 @@ extends Control
 
 
 @export var new_shipment_panel_scene : PackedScene
-@export var shipment_button_scene : PackedScene
+@export var new_trade_panel_scene : PackedScene
 
+@export var shipment_button_scene : PackedScene
+@export var trade_button_scene : PackedScene
 
 var planet
 
@@ -48,8 +50,11 @@ func update():
 		var dic = shipments_array[index]
 		
 		var button = shipment_button_scene.instantiate()
-		button.resource_type = dic["cargo"]["resource"]
-		button.resource_amount = dic["cargo"]["amount"]
+		
+		var biggest_resource = get_biggest_resource(dic["cargo"])
+		
+		button.resource_type = biggest_resource
+		button.resource_amount = dic["cargo"][biggest_resource]
 		button.receiver_id = dic["receiver_id"]
 		button.root_parent = self
 		
@@ -59,8 +64,21 @@ func update():
 		%ShipmentContainer.add_child(button)
 
 
+func get_biggest_resource(dic : Dictionary) -> String: 
+	var biggest = "population"
+	for key in dic:
+		var biggest_number = dic[biggest]
+		var current_number = dic[key]
+		
+		if current_number > biggest_number:
+			biggest = key
+	return biggest
 
 
+
+
+func _on_exit_button_pressed():
+	hide()
 
 
 func _on_new_shipment_button_pressed():
@@ -69,5 +87,6 @@ func _on_new_shipment_button_pressed():
 	add_child(panel_instance)
 
 
-func _on_exit_button_pressed():
-	hide()
+func _on_new_trade_button_pressed():
+	var panel_instance = new_trade_panel_scene.instantiate()
+	add_child(panel_instance)
