@@ -100,7 +100,7 @@ func get_auto_sender():
 	return %AutoSender
 
 @rpc("any_peer","reliable","call_local")
-func request_assing_new_shipment(exported_shipment_dictionary):
+func request_assign_new_shipment(exported_shipment_dictionary):
 	assign_new_shipment(exported_shipment_dictionary)
 	assign_new_shipment.rpc(exported_shipment_dictionary)
 
