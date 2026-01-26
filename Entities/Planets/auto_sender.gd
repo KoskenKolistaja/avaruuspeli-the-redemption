@@ -57,9 +57,9 @@ var trade_dictionaries: Array[Dictionary] = []
 
 
 func _ready():
-	if get_parent().planet_id == 1:
-		test = true
-		print("Test = true")
+	if multiplayer.is_server():
+		$Timer.start()
+		$TradeTimer.start()
 
 
 func assing_new_shipment(exported_shipment_dictionary):
@@ -264,7 +264,10 @@ func send_ship(shipment_data: Dictionary) -> void:
 	print(shipment_data["cargo"])
 	ship_instance.set_cargo(shipment_data["cargo"])
 	ship_instance.receiver = PlanetData.get_planet(shipment_data["receiver_id"])
-	add_child(ship_instance)
+	
+	var cargo_ship_container = get_tree().get_first_node_in_group("cargo_ship_container")
+	
+	cargo_ship_container.add_child(ship_instance,true)
 	ship_instance.global_position = sender_planet.global_position
 
 
@@ -291,7 +294,9 @@ func send_trade_ship(shipment_data: Dictionary) -> void:
 	ship_instance.set_cargo(shipment_data["cargo"])
 	ship_instance.is_trade_ship = true
 	ship_instance.receiver = PlanetData.get_planet(shipment_data["receiver_id"])
-	add_child(ship_instance)
+	var cargo_ship_container = get_tree().get_first_node_in_group("cargo_ship_container")
+	
+	cargo_ship_container.add_child(ship_instance,true)
 	ship_instance.global_position = sender_planet.global_position
 
 

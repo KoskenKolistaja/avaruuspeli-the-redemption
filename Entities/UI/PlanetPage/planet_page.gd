@@ -36,18 +36,21 @@ func _physics_process(delta):
 
 
 func assign_new_shipment(exported_dictionary):
-	planet.assign_new_shipment(exported_dictionary)
+	planet.request_assign_new_shipment.rpc_id(1,exported_dictionary)
+
 
 func request_buy_building(slot_id : int , building_name : String):
-	planet.request_buy_building(slot_id,building_name)
+	planet.request_buy_building.rpc_id(1,slot_id,building_name)
 
 func request_delete_building(slot_id):
-	planet.delete_existing_building(slot_id)
+	planet.request_delete_building.rpc_id(1,slot_id)
 
 func building_bought():
 	$BuildingsPanel.update()
 	$BuildingsPanel/CataloguePanel.hide()
 
+func building_deleted():
+	$BuildingsPanel.update()
 
 
 func update_base():
@@ -61,14 +64,21 @@ func update_base():
 
 func update_owner():
 	var owner_id = planet.owner_id
-	if owner_id == PlayerData.my_id:
+	
+	if not owner_id:
+		$PlanetPanel/OwnerName.hide()
+		%ColonizeButton.show()
+		hide_buttons()
+	elif owner_id == PlayerData.my_id:
 		$PlanetPanel/OwnerName.hide()
 		show_buttons()
+		%ColonizeButton.hide()
 	else:
 		var owner_name = PlayerData.player_names[owner_id]
 		$PlanetPanel/OwnerName.text = "Governor: " + owner_name
 		$PlanetPanel/OwnerName.show()
 		hide_buttons()
+		%ColonizeButton.hide()
 
 func hide_buttons():
 	for b in $%ButtonContainer.get_children():
@@ -217,9 +227,12 @@ func _on_military_button_pressed():
 func _on_spin_box_value_changed(value):
 	var int_value = roundi(value)
 	if planet:
-		planet.set_desired_population(int_value)
+		planet.request_set_desired_population.rpc_id(1,int_value)
 	else:
 		push_error("Planet page didn't find planet!")
+
+
+
 
 
 func _on_settings_exit_pressed():
@@ -231,3 +244,8 @@ func _on_settings_exit_pressed():
 
 func _on_buildings_exit_pressed():
 	$BuildingsPanel.deactivate()
+
+
+func _on_colonize_button_pressed():
+	planet.request_change_owner(PlayerData.my_id)
+	update_base()

@@ -61,7 +61,7 @@ func update():
 		# Now you have the correct index to assign
 		button.shipment_index = index 
 		
-		%ShipmentContainer.add_child(button)
+		%ShipmentContainer.add_child(button,true)
 
 
 func get_biggest_resource(dic : Dictionary) -> String: 
@@ -84,9 +84,9 @@ func _on_exit_button_pressed():
 func _on_new_shipment_button_pressed():
 	var panel_instance = new_shipment_panel_scene.instantiate()
 	panel_instance.sender_id = get_parent().planet.planet_id
-	add_child(panel_instance)
+	add_child(panel_instance,true)
 
 
 func _on_new_trade_button_pressed():
 	var panel_instance = new_trade_panel_scene.instantiate()
-	add_child(panel_instance)
+	add_child(panel_instance,true)

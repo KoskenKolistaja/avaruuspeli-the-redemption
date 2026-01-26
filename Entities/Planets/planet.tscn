@@ -38,13 +38,14 @@ ship_scene = ExtResource("5_asytt")
 
 [node name="Timer" type="Timer" parent="AutoSender"]
 wait_time = 2.0
-autostart = true
 
 [node name="TradeTimer" type="Timer" parent="AutoSender"]
 wait_time = 10.0
-autostart = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="IncomeHandler/Timer" to="IncomeHandler" method="_on_timer_timeout"]
 [connection signal="timeout" from="IncomeHandler/PopulationTimer" to="IncomeHandler" method="_on_population_timer_timeout"]
 [connection signal="timeout" from="AutoSender/Timer" to="AutoSender" method="_on_timer_timeout"]
 [connection signal="timeout" from="AutoSender/TradeTimer" to="AutoSender" method="_on_trade_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

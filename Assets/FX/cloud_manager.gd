@@ -43,7 +43,7 @@ func _process(delta):
 
 func _spawn_cloud():
 	var instance = cloud_particle_scene.instantiate()
-	add_child(instance)
+	add_child(instance,true)
 	
 	if "emitting" in instance:
 		instance.emitting = true

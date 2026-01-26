@@ -1,11 +1,11 @@
 extends Node3D
 
 
-var population : int = 0
-var food : int = 0
-var technology : int = 0
-var iron : int = 0
-var uranium : int = 0
+@export var population : int = 0
+@export var food : int = 0
+@export var technology : int = 0
+@export var iron : int = 0
+@export var uranium : int = 0
 
 @export var population_icon : Texture
 @export var food_icon : Texture
@@ -14,7 +14,7 @@ var uranium : int = 0
 @export var uranium_icon : Texture
 
 
-var is_trade_ship = false
+@export var is_trade_ship : bool = false
 
 
 @export var initial_receiver : Node3D
@@ -24,24 +24,41 @@ var receiver_position
 
 var speed = 0.05
 
+@export var sync_position : Vector3
+@export var sync_rotation_z : float
+
+
 func _ready():
+	
+	if not multiplayer.is_server():
+		return
+	
 	
 	if is_trade_ship:
 		$CargoShipMesh.hide()
 		$TradeShipMesh.show()
+	set_icon()
 	
 	receiver_position = receiver.global_position
 	if initial_receiver:
 		receiver = initial_receiver
-	set_icon()
 	var vector = receiver.global_position - self.global_position
 	var direction = Vector3(vector.x,vector.y,0).normalized()
 	direction = direction.rotated(Vector3(0,0,1),deg_to_rad(-90))
 	print(direction)
 	await get_tree().physics_frame
 	global_position += direction * 2
+	sync_position = global_position
 	receiver_position += direction * 2
+	
 
+
+
+func client_ready():
+	if is_trade_ship:
+		$CargoShipMesh.hide()
+		$TradeShipMesh.show()
+	set_icon()
 
 
 func set_icon():
@@ -64,17 +81,35 @@ func get_biggest_resource() -> String:
 
 
 func _physics_process(delta):
+	if not multiplayer.is_server():
+		_client_interpolate(delta)
+		return
+	
 	var vector = receiver_position - self.global_position
 	var direction = Vector3(vector.x,vector.y,0).normalized()
 	
 	rotate_toward_direction(direction)
 	
 	
-	global_position += direction * speed
+	global_position += direction * speed * delta * 60
+	sync_position = global_position
+	sync_rotation_z = rotation.z
 	
 	if vector.length() < 5:
 		send_resources()
 		queue_free()
+
+
+
+func _client_interpolate(delta):
+	# Smoothly move position
+	global_position = global_position.lerp(sync_position, 0.1)
+	# Smoothly interpolate rotation (using lerp_angle to prevent 360-degree snapping)
+	rotation.z = lerp_angle(rotation.z, sync_rotation_z, 0.2)
+
+
+
+
 
 func rotate_toward_direction(direction: Vector3):
 	direction.z = 0.0
@@ -108,3 +143,7 @@ func send_resources():
 	}
 	
 	receiver.unload_cargo(dic)
+
+
+func _on_multiplayer_synchronizer_synchronized():
+	client_ready()

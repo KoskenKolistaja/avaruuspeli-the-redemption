@@ -28,6 +28,13 @@ const INPUT_RIGHT = "move_right"  # Usually 'D'
 var current_planet = null
 var target_zoom: float = 10.0 # Internal variable to track where we want to be
 
+
+func _enter_tree():
+	# Set the authority based on the node name (which is the peer ID)
+	set_multiplayer_authority(name.to_int())
+
+
+
 func _ready() -> void:
 	# 1. LOCK Z AXIS PHYSICS
 	axis_lock_linear_z = true
@@ -38,6 +45,14 @@ func _ready() -> void:
 	var camera = get_viewport().get_camera_3d()
 	if camera:
 		target_zoom = camera.global_position.z
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	if is_multiplayer_authority():
+		$Camera3D.current = true
+	else:
+		pass
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Capture Mouse Wheel Input
@@ -53,7 +68,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	
 	if not is_multiplayer_authority():
+		move_to_phantom_position(delta)
 		return
+	
+	$Phantom.global_position = global_position
+	$Phantom.global_rotation = global_rotation
 	
 	handle_rotation(delta)
 	handle_thrust(delta)
@@ -67,6 +86,40 @@ func _physics_process(delta: float) -> void:
 	
 	if current_planet:
 		check_distance_to_planet()
+
+
+func move_to_phantom_position(delta):
+	var target_pos = $Phantom.global_position
+	var target_rot = $Phantom.global_rotation
+	
+	# --- 1. POSITION (Using Velocity) ---
+	# Calculate the distance to the target
+	var distance_vector = target_pos - global_position
+	
+	# SMOOTH OPTION:
+	# Move 10% of the remaining distance every frame (Tune '10.0' to change smoothness)
+	# This creates an "ease-out" arrival which looks great for lag correction.
+	velocity = distance_vector * 10.0 
+
+	# HARD OPTION (Matches your old '0.1' logic):
+	# If you want constant speed (robotic movement), uncomment this:
+	# var speed = 6.0 # 6.0 is roughly equivalent to 0.1 per frame at 60fps
+	# velocity = distance_vector.normalized() * speed
+	# if distance_vector.length() < 0.1: velocity = Vector3.ZERO # Snap when close
+
+	# Apply the velocity using the physics engine
+	move_and_slide()
+	
+	# --- 2. ROTATION ---
+	# CharacterBody3D doesn't use angular velocity for move_and_slide, 
+	# so we still interpolate this manually.
+	
+	# 'lerp_angle' is safer than 'move_toward' for rotation because it handles 
+	# the 360->0 degree wrap-around correctly.
+	global_rotation.y = lerp_angle(global_rotation.y, target_rot.y, 10.0 * delta)
+	global_rotation.x = lerp_angle(global_rotation.x, target_rot.x, 10.0 * delta)
+	global_rotation.z = lerp_angle(global_rotation.z, target_rot.z, 10.0 * delta)
+
 
 func check_distance_to_planet():
 	if (self.global_position - current_planet.global_position).length() > 10:
@@ -137,6 +190,8 @@ func handle_camera_zoom(delta: float) -> void:
 		camera.global_position.z = new_z
 
 func _on_planet_catcher_body_entered(body):
+	if not is_multiplayer_authority():
+		return
 	if body.is_in_group("planet_body"):
 		current_planet = body.get_planet()
 		show_planet_page()

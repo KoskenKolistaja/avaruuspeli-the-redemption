@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://8f5b0k70rwev"]
+[gd_scene load_steps=12 format=4 uid="uid://8f5b0k70rwev"]
 
 [ext_resource type="Script" uid="uid://bh4gsx3uuo833" path="res://Entities/Player/player.gd" id="1_mv1ah"]
 [ext_resource type="Script" uid="uid://bjkifxtnov8gv" path="res://Entities/Player/camera_3d.gd" id="2_3uyv8"]
@@ -57,6 +57,14 @@ height = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_3uyv8"]
 radius = 5.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lu8i8"]
+properties/0/path = NodePath("Phantom:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Phantom:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_mv1ah")
 min_zoom = 1.0
@@ -88,5 +96,18 @@ shape = SubResource("CapsuleShape3D_ix6vc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlanetCatcher"]
 shape = SubResource("SphereShape3D_3uyv8")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.1
+replication_config = SubResource("SceneReplicationConfig_lu8i8")
+
+[node name="Phantom" type="Node3D" parent="."]
+top_level = true
+
+[node name="Destroyer_1" type="MeshInstance3D" parent="Phantom"]
+transform = Transform3D(-6.5567074e-10, -6.5567085e-10, -0.015, -0.015, -6.556708e-10, 6.556708e-10, -6.5567085e-10, 0.015, -6.556708e-10, 0, 0.13727033, -0.17368436)
+visible = false
+mesh = SubResource("ArrayMesh_qd63j")
+skeleton = NodePath("")
 
 [connection signal="body_entered" from="PlanetCatcher" to="." method="_on_planet_catcher_body_entered"]

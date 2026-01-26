@@ -91,8 +91,8 @@ func reset_values():
 func init_data():
 	for key in MetaData.resource_names:
 		var tex = MetaData.resource_icons[key]
-		var name = MetaData.resource_names[key]
-		$MarginContainer/HBoxContainer/ResourceButton.add_icon_item(tex,name,key)
+		var resource_name = MetaData.resource_names[key]
+		$MarginContainer/HBoxContainer/ResourceButton.add_icon_item(tex,resource_name,key)
 	
 
 

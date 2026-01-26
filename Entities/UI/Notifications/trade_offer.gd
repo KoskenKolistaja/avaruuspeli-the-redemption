@@ -24,4 +24,4 @@ func spawn_trade_panel():
 	var base = get_tree().get_first_node_in_group("space")
 	trade_panel_instance.saved_trade_data = trade_data
 	trade_panel_instance.is_initial = false
-	base.add_child(trade_panel_instance)
+	base.add_child(trade_panel_instance,true)

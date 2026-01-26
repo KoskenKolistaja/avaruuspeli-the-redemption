@@ -62,10 +62,15 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	if saved_trade_data:
 		init_from_dictionary(saved_trade_data)
+	
+	if not is_initial:
+		%PlayersOptionButton.disabled = true
 
 
 #This function is used when player has incoming trade offer. It reverses participant/validator roles
 func init_from_dictionary(trade_data : Dictionary):
+	push_error(PlayerData.players)
+	push_error(trade_data)
 	var your_planet_index = %YourPlanetsOptionButton.get_item_index(trade_data["participant_planet_id"])
 	%YourPlanetsOptionButton.select(your_planet_index)
 	_on_your_planets_option_button_item_selected(your_planet_index)
@@ -75,8 +80,11 @@ func init_from_dictionary(trade_data : Dictionary):
 	
 	var their_id = trade_data["validator_id"]
 	
-	%PlayersOptionButton.select(their_id)
-	_on_players_option_button_item_selected(their_id)
+	
+	var player_index = %PlayersOptionButton.get_item_index(their_id)
+	
+	%PlayersOptionButton.select(player_index)
+	_on_players_option_button_item_selected(player_index)
 	
 	var your_shipment = trade_data["shipments"][1]
 	var their_shipment = trade_data["shipments"][0]
@@ -196,8 +204,8 @@ func update_player_list():
 	%PlayersOptionButton.add_item("<Choose Player>")
 	
 	for id in PlayerData.players:
-		#if id == PlayerData.my_id:
-			#continue
+		if id == PlayerData.my_id:
+			continue
 		var tex : Texture = PlayerData.player_icons[id]
 		var name : String = PlayerData.player_names[id]
 		%PlayersOptionButton.add_icon_item(tex,name,id)
@@ -248,12 +256,12 @@ func _on_their_planets_option_button_item_selected(index):
 
 func _on_accept_button_pressed():
 	var trade_data = parse_trade()
-	
+	print(trade_data)
 	var planet1 = PlanetData.get_planet(trade_data["validator_planet_id"])
 	var planet2 = PlanetData.get_planet(trade_data["participant_planet_id"])
 	
-	planet1.assign_new_trade(trade_data)
-	planet2.assign_new_trade(trade_data)
+	planet1.request_assign_new_trade.rpc_id(1,trade_data)
+	planet2.request_assign_new_trade.rpc_id(1,trade_data)
 	
 	queue_free()
 
@@ -262,6 +270,7 @@ func _on_send_button_pressed():
 	
 	if not trade_data:
 		return
+	
 	
 	if trade_data["participant_id"] == 999:
 		_on_accept_button_pressed()

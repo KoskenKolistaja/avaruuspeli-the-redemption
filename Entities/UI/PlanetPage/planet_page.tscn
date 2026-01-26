@@ -356,6 +356,23 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Governor: "
 
+[node name="ColonizeButton" type="Button" parent="PlanetPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.162003
+offset_top = -74.22099
+offset_right = 48.162125
+offset_bottom = -31.969986
+grow_horizontal = 2
+grow_vertical = 2
+text = "Colonize"
+
 [node name="SettingsPanel" type="Panel" parent="."]
 visible = false
 custom_minimum_size = Vector2(500, 300)
@@ -4233,6 +4250,7 @@ expand_icon = true
 [connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/MilitaryButton" to="." method="_on_military_button_pressed"]
 [connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/ScienceButton" to="." method="_on_science_button_pressed"]
 [connection signal="pressed" from="PlanetPanel/PlanetContents/ButtonContainer/ShipButton" to="." method="_on_ship_button_pressed"]
+[connection signal="pressed" from="PlanetPanel/ColonizeButton" to="." method="_on_colonize_button_pressed"]
 [connection signal="value_changed" from="SettingsPanel/SettingsContainer/DesiredPopulationContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
 [connection signal="pressed" from="SettingsPanel/SettingsExit" to="." method="_on_settings_exit_pressed"]
 [connection signal="pressed" from="BuildingsPanel/BuildingsExit" to="." method="_on_buildings_exit_pressed"]

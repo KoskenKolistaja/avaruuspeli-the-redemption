@@ -10,13 +10,7 @@ func _ready():
 	$AddItemButton.pressed.connect(show_next_item)
 
 
-var example_dic = {
-	"population" : 0,
-	"food" : 100,
-	"technology" : 0,
-	"iron" : 0,
-	"uranium" : 0,
-	}
+
 
 
 func set_items_from_dictionary(dic : Dictionary):
@@ -44,7 +38,6 @@ func show_next_item():
 
 
 func get_cargo() -> Dictionary:
-	var example_dic = {"resource" : "technology","amount" : 100}
 	var result: Dictionary = {
 		"population" : 0,
 		"food" : 0,

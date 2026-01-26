@@ -13,8 +13,9 @@ func _ready():
 
 
 func request_buy_building(slot_id : int , building_name : String):
+	#parent = PlanetPage
 	parent.request_buy_building(slot_id,building_name)
-
+	hide()
 
 
 func _on_capital_panel_pressed():

@@ -45,6 +45,7 @@ layout_mode = 2
 text = "Host Game"
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Start Game"
@@ -80,6 +81,14 @@ text = "Avaruuspeli
 The Redemption"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 146.0
+offset_top = 279.0
+offset_right = 186.0
+offset_bottom = 297.0
 
 [connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
