@@ -121,8 +121,28 @@ func assign_new_trade(exported_trade_dictionary):
 
 
 #Passing function
+@rpc("any_peer","reliable","call_local")
 func request_delete_shipment(exported_index):
+	if not multiplayer.is_server():
+		return
 	%AutoSender.delete_shipment(exported_index)
+	sync_delete_shipment.rpc(exported_index)
+
+@rpc("authority","reliable")
+func sync_delete_shipment(exported_index):
+	%AutoSender.delete_shipment(exported_index)
+
+@rpc("any_peer","reliable","call_local")
+func request_delete_trade(exported_index):
+	if not multiplayer.is_server():
+		return
+	%AutoSender.delete_trade(exported_index)
+	sync_delete_trade.rpc(exported_index)
+
+
+@rpc("authority","reliable")
+func sync_delete_trade(exported_index):
+	%AutoSender.delete_trade(exported_index)
 
 
 func setup_npc():

@@ -78,6 +78,8 @@ func get_trade_dictionaries():
 func delete_shipment(index_to_be_deleted):
 	shipment_dictionaries.remove_at(index_to_be_deleted)
 
+func delete_trade(index_to_be_deleted):
+	trade_dictionaries.remove_at(index_to_be_deleted)
 
 func _on_timer_timeout() -> void:
 	if shipment_dictionaries.is_empty():

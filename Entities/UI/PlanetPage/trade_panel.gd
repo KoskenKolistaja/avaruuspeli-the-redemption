@@ -38,6 +38,11 @@ func update():
 		push_warning("No assigned planet for shipment panel!")
 		return
 	
+	update_shipments()
+
+
+
+func update_shipments():
 	for c in %ShipmentContainer.get_children():
 		c.queue_free()
 	

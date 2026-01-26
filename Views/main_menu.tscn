@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv7k04jyw163m"]
+[gd_scene load_steps=7 format=3 uid="uid://bv7k04jyw163m"]
 
 [ext_resource type="Script" uid="uid://bdpolfim6tmt6" path="res://Views/main_menu.gd" id="1_7s1d8"]
 [ext_resource type="Texture2D" uid="uid://bhud4mgusa5uq" path="res://Assets/Textures/Sky/8k_stars_milky_way.jpg" id="1_i7pk0"]
+[ext_resource type="Texture2D" uid="uid://bc0jmfo43d6h1" path="res://Assets/Textures/UI Textures/Agent.png" id="3_egtk6"]
+[ext_resource type="Texture2D" uid="uid://b318ndypivqpl" path="res://Assets/Textures/UI Textures/NPC.png" id="4_3k7gy"]
+[ext_resource type="Texture2D" uid="uid://dywrooytif6x0" path="res://Assets/Textures/UI Textures/Suitman.png" id="5_gq2q7"]
+[ext_resource type="Texture2D" uid="uid://b1y3cb0gxo4ch" path="res://Assets/Textures/UI Textures/Soldier.png" id="6_bghtg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -90,6 +94,63 @@ offset_top = 279.0
 offset_right = 186.0
 offset_bottom = 297.0
 
+[node name="PlayerName" type="LineEdit" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = 137.0
+offset_right = 480.0
+offset_bottom = 176.43433
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player"
+max_length = 12
+
+[node name="Label" type="Label" parent="PlayerName"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -23.0
+offset_right = 114.0
+offset_bottom = -5.0
+text = "Player name"
+
+[node name="PlayerIcon" type="Button" parent="PlayerName"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 0
+offset_left = -33.0
+offset_top = -318.0
+offset_right = 223.0
+offset_bottom = -62.0
+icon = ExtResource("3_egtk6")
+expand_icon = true
+
+[node name="IconList" type="ItemList" parent="PlayerName"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+auto_width = true
+auto_height = true
+item_count = 4
+max_columns = 2
+fixed_icon_size = Vector2i(128, 128)
+item_0/icon = ExtResource("3_egtk6")
+item_1/icon = ExtResource("4_3k7gy")
+item_2/icon = ExtResource("5_gq2q7")
+item_3/icon = ExtResource("6_bghtg")
+
 [connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="text_changed" from="PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="pressed" from="PlayerName/PlayerIcon" to="." method="_on_player_icon_pressed"]
+[connection signal="item_selected" from="PlayerName/IconList" to="." method="_on_icon_list_item_selected"]
