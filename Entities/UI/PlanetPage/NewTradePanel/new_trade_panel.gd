@@ -289,3 +289,7 @@ func _on_reset_button_pressed():
 
 func _on_cancel_button_pressed():
 	queue_free()
+
+
+func _on_binding_check_box_toggled(toggled_on):
+	pass # Replace with function body.

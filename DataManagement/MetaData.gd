@@ -12,6 +12,9 @@ var resource_names = {
 	5: "uranium"
 }
 
+
+var capital_built
+
 var population_icon = preload("res://Assets/Textures/UI Textures/Resources/People.png")
 var food_icon = preload("res://Assets/Textures/UI Textures/Resources/Food.png")
 var technology_icon = preload("res://Assets/Textures/UI Textures/Resources/Cog.png")

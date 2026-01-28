@@ -173,13 +173,23 @@ func buy_npc_buildings():
 #Action function
 @rpc("any_peer","reliable","call_local")
 func request_buy_building(slot_id : int , building_name : String):
+	
+	
 	if not multiplayer.is_server():
 		return
 	if building_name == "none":
 		delete_existing_building(slot_id)
 		return
+	
+	
 	var purchase_valid = _is_building_purchasable(building_name)
 	if purchase_valid:
+		if building_name == "capital":
+			var sender_id = multiplayer.get_remote_sender_id()
+			if not MetaData.capital_built[sender_id]:
+				MetaData.capital_built[sender_id] = true
+			else:
+				return
 		add_building_locally(slot_id,building_name)
 		if planet_page:
 			planet_page.building_bought()
@@ -208,6 +218,7 @@ func add_building_locally(slot_id,building_name):
 
 @rpc("any_peer","reliable","call_local")
 func request_delete_building(slot_id):
+	var sender_id = multiplayer.get_remote_sender_id()
 	if not multiplayer.is_server():
 		return
 	delete_existing_building(slot_id)

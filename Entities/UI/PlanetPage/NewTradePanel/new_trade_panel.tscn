@@ -520,6 +520,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -557,6 +558,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -594,6 +596,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item3/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -631,6 +634,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item4/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -668,6 +672,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item5/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -705,6 +710,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/YourPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/YourItemsContainer/Item6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -798,6 +804,24 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Counter offer"
+
+[node name="BindingContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BindingCheckBox" type="CheckBox" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/BindingContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/BindingContainer"]
+layout_mode = 2
+text = "Binding"
+
+[node name="BindingLength" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/BindingLength"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+prefix = "length:"
 
 [node name="CancelButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -1246,6 +1270,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1283,6 +1308,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1320,6 +1346,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item3/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1357,6 +1384,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item4/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1394,6 +1422,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item5/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1431,6 +1460,7 @@ theme_override_constants/icon_max_width = 24
 [node name="Amount" type="SpinBox" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 50000.0
 
 [node name="DeleteButton" type="Button" parent="Panel/MarginContainer/HBoxContainer/TheirPanel/ItemsPanel/MarginContainer/Panel/ScrollContainer/TheirItemsContainer/Item6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -1458,6 +1488,7 @@ text = "+add item"
 [connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="toggled" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/BindingContainer/BindingCheckBox" to="." method="_on_binding_check_box_toggled"]
 [connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer2/HBoxContainer/PlayersOptionButton" to="." method="_on_players_option_button_item_selected"]
 [connection signal="item_selected" from="Panel/MarginContainer/HBoxContainer/TheirPanel/Panel/VBoxContainer/MarginContainer3/HBoxContainer/TheirPlanetsOptionButton" to="." method="_on_their_planets_option_button_item_selected"]

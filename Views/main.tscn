@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://brhlih3w663ec"]
+
+[ext_resource type="PackedScene" uid="uid://372cwiqlmyrk" path="res://Assets/space.tscn" id="1_8r4uk"]
+[ext_resource type="Script" uid="uid://cmfeq64px21mq" path="res://Views/music.gd" id="2_y1b1f"]
+
+[node name="Main" type="Node"]
+
+[node name="Space" parent="." instance=ExtResource("1_8r4uk")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_y1b1f")
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

@@ -49,7 +49,6 @@ func host_game() -> void:
 	
 	print("Hosting started.")
 	_update_status("Hosting as " + local_player_name)
-	if start_button: start_button.show()
 	%PlayerIcon.hide()
 	%PlayerName.hide()
 
@@ -148,11 +147,12 @@ func _on_server_disconnected():
 	if start_button: start_button.hide()
 
 func _on_peer_connected(_id: int):
-	pass
+	if multiplayer.is_server():
+		if start_button: start_button.show()
 
 
 func _on_player_icon_pressed():
-	$PlayerName/IconList.show()
+	%IconList.show()
 
 
 func _on_icon_list_item_selected(index):
@@ -160,5 +160,5 @@ func _on_icon_list_item_selected(index):
 	var path_string = my_texture.resource_path
 	local_player_icon_path = path_string
 	%PlayerIcon.icon = load(path_string)
-	$PlayerName/IconList.hide()
+	%IconList.hide()
 	print("JUUUUUU!!")
