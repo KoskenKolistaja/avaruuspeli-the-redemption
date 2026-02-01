@@ -90,6 +90,16 @@ func get_owner_id() -> int:
 func get_buildings():
 	return $IncomeHandler.get_sorted_productive_buildings()
 
+
+func delete_all_buildings():
+	var buildings = get_buildings()
+	var index = 0
+	for b in buildings:
+		delete_existing_building(index)
+		index += 1
+
+
+
 func get_shipment_dictionaries():
 	return %AutoSender.get_shipment_dictionaries()
 

@@ -163,6 +163,9 @@ properties/7/replication_mode = 1
 properties/8/path = NodePath(".:position")
 properties/8/spawn = true
 properties/8/replication_mode = 0
+properties/9/path = NodePath(".:synced_velocity")
+properties/9/spawn = true
+properties/9/replication_mode = 1
 
 [node name="CargoShip" type="Node3D"]
 script = ExtResource("1_buq0t")
@@ -210,7 +213,7 @@ libraries = {
 autoplay = "lightflicker"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_interval = 0.1
+replication_interval = 5.0
 replication_config = SubResource("SceneReplicationConfig_ivvue")
 
 [connection signal="synchronized" from="MultiplayerSynchronizer" to="." method="_on_multiplayer_synchronizer_synchronized"]

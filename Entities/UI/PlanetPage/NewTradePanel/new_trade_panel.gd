@@ -216,8 +216,8 @@ func update_your_planets():
 	var owned_planets = PlanetData.get_planet_ids_by_owner_id(PlayerData.my_id)
 	for id in owned_planets:
 		var tex : Texture = PlanetData.planet_icons[id]
-		var name : String = PlanetData.planet_names[id]
-		%YourPlanetsOptionButton.add_icon_item(tex,name,id)
+		var planet_name : String = PlanetData.planet_names[id]
+		%YourPlanetsOptionButton.add_icon_item(tex,planet_name,id)
 	
 	%YourPlanetsOptionButton.select(0)
 	_on_your_planets_option_button_item_selected(0)
@@ -232,8 +232,8 @@ func update_their_planets():
 	var their_owned_planets = PlanetData.get_planet_ids_by_owner_id(their_id)
 	for id in their_owned_planets:
 		var tex : Texture = PlanetData.planet_icons[id]
-		var name : String = PlanetData.planet_names[id]
-		%TheirPlanetsOptionButton.add_icon_item(tex,name,id)
+		var planet_name : String = PlanetData.planet_names[id]
+		%TheirPlanetsOptionButton.add_icon_item(tex,planet_name,id)
 	
 	%TheirPlanetsOptionButton.select(0)
 	_on_their_planets_option_button_item_selected(0)

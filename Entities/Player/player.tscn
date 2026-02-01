@@ -59,7 +59,7 @@ radius = 5.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lu8i8"]
 properties/0/path = NodePath("Phantom:position")
-properties/0/spawn = true
+properties/0/spawn = false
 properties/0/replication_mode = 1
 properties/1/path = NodePath("Phantom:rotation")
 properties/1/spawn = true
@@ -67,11 +67,15 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath(".:synced_velocity")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:position")
+properties/3/spawn = false
+properties/3/replication_mode = 0
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["player"]]
 script = ExtResource("1_mv1ah")
 min_zoom = 1.0
 max_zoom = 250.0
+camera = NodePath("Camera3D")
 
 [node name="Destroyer_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(-6.5567074e-10, -6.5567085e-10, -0.015, -0.015, -6.556708e-10, 6.556708e-10, -6.5567085e-10, 0.015, -6.556708e-10, 0, 0.13727033, -0.17368436)
@@ -86,7 +90,6 @@ mesh = SubResource("CapsuleMesh_ix6vc")
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target_to_follow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 top_level = true
-current = true
 fov = 50.0
 script = ExtResource("2_3uyv8")
 target_to_follow = NodePath("..")
@@ -114,6 +117,6 @@ mesh = SubResource("ArrayMesh_qd63j")
 skeleton = NodePath("")
 
 [node name="Barrel" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [connection signal="body_entered" from="PlanetCatcher" to="." method="_on_planet_catcher_body_entered"]

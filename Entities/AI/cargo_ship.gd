@@ -26,13 +26,12 @@ var speed = 0.05
 
 @export var sync_position : Vector3
 @export var sync_rotation_z : float
-
+@export var synced_velocity : Vector3
 
 func _ready():
 	
 	if not multiplayer.is_server():
 		return
-	
 	
 	if is_trade_ship:
 		$CargoShipMesh.hide()
@@ -51,6 +50,19 @@ func _ready():
 	sync_position = global_position
 	receiver_position += direction * 2
 	
+
+
+func _enter_tree():
+	if not multiplayer.is_server():
+		request_sync_position.rpc_id(1)
+
+@rpc("any_peer")
+func request_sync_position():
+	sync_client_position.rpc(global_position)
+
+@rpc("authority")
+func sync_client_position(exported_position):
+	self.global_position = exported_position
 
 
 
@@ -90,8 +102,11 @@ func _physics_process(delta):
 	
 	rotate_toward_direction(direction)
 	
+	var velocity = direction * speed * 60
+	synced_velocity = velocity
 	
-	global_position += direction * speed * delta * 60
+	
+	global_position += velocity * delta
 	sync_position = global_position
 	sync_rotation_z = rotation.z
 	
@@ -103,7 +118,9 @@ func _physics_process(delta):
 
 func _client_interpolate(delta):
 	# Smoothly move position
-	global_position = global_position.lerp(sync_position, 0.1)
+	sync_position += synced_velocity * delta
+	#global_position = global_position.lerp(sync_position, 0.01)
+	global_position = sync_position
 	# Smoothly interpolate rotation (using lerp_angle to prevent 360-degree snapping)
 	rotation.z = lerp_angle(rotation.z, sync_rotation_z, 0.2)
 

@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var player_scene: PackedScene
+@export var player_spawner : PackedScene
 
 # Reference to the node where players will be added
 @onready var players_container = $PlayerContainer
@@ -14,26 +15,39 @@ func _ready():
 		return
 	
 	
-	# 1. Spawn players who are already in the PlayerData dictionary
-	# (Host + anyone who joined while in the lobby)
-	for id in PlayerData.players:
-		
-		if id == 999:
-			continue
-		
-		spawn_player(id)
-	
-	# 2. Listen for new connections (Late Joiners)
-	# If someone joins MID-GAME, this triggers.
-	multiplayer.peer_connected.connect(spawn_player)
-	
-	# 3. Clean up when someone leaves
-	multiplayer.peer_disconnected.connect(remove_player)
+	## 1. Spawn players who are already in the PlayerData dictionary
+	## (Host + anyone who joined while in the lobby)
+	#for id in PlayerData.players:
+		#
+		#if id == 999:
+			#continue
+		#
+		#spawn_player(id)
+	#
+	## 2. Listen for new connections (Late Joiners)
+	## If someone joins MID-GAME, this triggers.
+	#multiplayer.peer_connected.connect(spawn_player)
+	#
+	## 3. Clean up when someone leaves
+	#multiplayer.peer_disconnected.connect(remove_player)
 
 func spawn_info():
 	await get_tree().create_timer(5).timeout
 
-func spawn_player(id: int):
+@rpc("any_peer","reliable","call_local")
+func request_spawn_player(id : int,exported_position):
+	if not multiplayer.is_server():
+		return
+	spawn_player(id,exported_position)
+
+@rpc("authority","call_local","reliable")
+func spawn_player_spawner():
+	var spawner_instance = player_spawner.instantiate()
+	add_child(spawner_instance)
+
+
+
+func spawn_player(id: int, exported_position : Vector3 = Vector3(0, randi_range(10,20), 0)):
 	# Instantiate the player
 	var player = player_scene.instantiate()
 	
@@ -42,7 +56,7 @@ func spawn_player(id: int):
 	player.name = str(id)
 	
 	# Position logic (Optional: Add spawn points later)
-	player.position = Vector3(0, randi_range(10,20), 0)
+	player.position = exported_position
 	
 	# Add to the container. The MultiplayerSpawner detects this
 	# and immediately instantiates it on all connected clients.

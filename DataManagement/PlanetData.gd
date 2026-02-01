@@ -54,6 +54,13 @@ func get_planets_by_owner_id(exported_id):
 			returned.append(p)
 	return returned
 
+func get_sorted_planets() -> Array:
+	var planets := get_tree().get_nodes_in_group("planet")
+	
+	planets.sort_custom(func(a, b): return a.planet_id < b.planet_id)
+	return planets
+
+
 func get_planet_ids_by_owner_id(exported_id):
 	var planets = get_tree().get_nodes_in_group("planet")
 	var returned = []

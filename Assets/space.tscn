@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://372cwiqlmyrk"]
+[gd_scene load_steps=19 format=3 uid="uid://372cwiqlmyrk"]
 
 [ext_resource type="Script" uid="uid://dyr5s4vimas0k" path="res://Views/space.gd" id="1_m2q7a"]
 [ext_resource type="Environment" uid="uid://dbqvvyrhvjlpl" path="res://Assets/Environment/space.tres" id="1_wgg4r"]
@@ -17,11 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://fqx0m8onku2q" path="res://Entities/UI/Notifications/trade_offer.tscn" id="15_5cot1"]
 [ext_resource type="Script" uid="uid://dlio73hdobnr3" path="res://DataManagement/BulletPool.gd" id="16_pcvd3"]
 [ext_resource type="PackedScene" uid="uid://bd2akpeuje8j8" path="res://Entities/Projectiles/Bullet/bullet.tscn" id="17_60pvg"]
+[ext_resource type="PackedScene" uid="uid://3vk6xomjwhfc" path="res://Entities/UI/PlayerSpawner/player_spawner.tscn" id="18_60pvg"]
 
 [node name="Space" type="Node3D" groups=["space"]]
 process_mode = 1
 script = ExtResource("1_m2q7a")
 player_scene = ExtResource("4_rfnn0")
+player_spawner = ExtResource("18_60pvg")
 
 [node name="Ambient" type="Node3D" parent="."]
 
@@ -212,3 +214,5 @@ spawn_path = NodePath("../CargoShipContainer")
 [node name="BulletPool" type="Node3D" parent="Utility" groups=["bullet_pool"]]
 script = ExtResource("16_pcvd3")
 bullet_scene = ExtResource("17_60pvg")
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("18_60pvg")]

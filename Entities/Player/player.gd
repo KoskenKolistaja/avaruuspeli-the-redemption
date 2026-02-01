@@ -32,10 +32,23 @@ var target_zoom: float = 10.0 # Internal variable to track where we want to be
 
 var BulletPool
 
+@export var camera : Camera3D
+
+
+
 func _enter_tree():
 	# Set the authority based on the node name (which is the peer ID)
 	set_multiplayer_authority(name.to_int())
+	if not multiplayer.is_server():
+		request_sync_position.rpc_id(1)
 
+@rpc("any_peer")
+func request_sync_position():
+	sync_client_position.rpc(global_position)
+
+@rpc("authority")
+func sync_client_position(exported_position):
+	self.global_position = exported_position
 
 
 func _ready() -> void:
@@ -53,10 +66,17 @@ func _ready() -> void:
 	
 	if is_multiplayer_authority():
 		$Camera3D.current = true
+		for item in get_tree().get_nodes_in_group("player_spawner"):
+			item.queue_free()
+		
 	else:
 		pass
 	
 	BulletPool = get_tree().get_first_node_in_group("bullet_pool")
+
+
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Capture Mouse Wheel Input
@@ -205,7 +225,6 @@ func handle_rotation(delta: float) -> void:
 		rotation.y = 0
 
 func handle_camera_zoom(delta: float) -> void:
-	var camera = get_viewport().get_camera_3d()
 	if camera:
 		# Smoothly interpolate the current Z position to the target Z position
 		var new_z = lerp(camera.global_position.z, target_zoom, zoom_smoothing * delta)
@@ -222,4 +241,10 @@ func _on_planet_catcher_body_entered(body):
 
 
 func get_hit():
+	var id = name.to_int()
+	var space = get_tree().get_first_node_in_group("space")
+	
+	space.spawn_player_spawner.rpc_id(id)
+	
 	queue_free()
+	
