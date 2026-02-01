@@ -440,7 +440,6 @@ icon = ExtResource("14_jmr1l")
 expand_icon = true
 
 [node name="BuildingsPanel" type="Panel" parent="."]
-visible = false
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 1
 anchors_preset = 8
@@ -1158,9 +1157,10 @@ offset_right = -20.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 3
 
 [node name="General" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
+visible = false
 layout_mode = 2
 scroll_vertical = 100
 horizontal_scroll_mode = 0
@@ -1847,6 +1847,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+texture = ExtResource("5_11xo0")
 expand_mode = 1
 
 [node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/IronMinePanel/VBoxContainer"]
@@ -1903,7 +1904,7 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/CostContainer"]
 layout_mode = 2
-text = "400"
+text = "2000"
 
 [node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
 custom_minimum_size = Vector2(96, 96)
@@ -1922,8 +1923,10 @@ text = "Requirements:"
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+texture = ExtResource("5_11xo0")
 expand_mode = 1
 
 [node name="Label3" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/General/General/UraniumMinePanel/VBoxContainer"]
@@ -3146,7 +3149,6 @@ layout_mode = 2
 text = "-10"
 
 [node name="Mining" type="ScrollContainer" parent="BuildingsPanel/CataloguePanel/TabContainer"]
-visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 metadata/_tab_index = 3
@@ -3268,7 +3270,7 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer/CostContainer"]
 layout_mode = 2
-text = "400"
+text = "2000"
 
 [node name="Button" type="TextureRect" parent="BuildingsPanel/CataloguePanel/TabContainer/Mining/Mining/UraniumMinePanel/VBoxContainer"]
 custom_minimum_size = Vector2(96, 96)

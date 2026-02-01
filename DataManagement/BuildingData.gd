@@ -46,7 +46,7 @@ var building_prices = {
 	"super_farm" : 300,
 	"tokamak" : 10000,
 	"uranium_extractor" : 5000,
-	"uranium_mine" : 400,
+	"uranium_mine" : 2000,
 }
 
 var building_requirements = {
