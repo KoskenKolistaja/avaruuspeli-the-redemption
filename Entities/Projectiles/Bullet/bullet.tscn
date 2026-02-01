@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bd2akpeuje8j8"]
+
+[ext_resource type="Script" uid="uid://crsexasi18t01" path="res://Entities/Projectiles/Bullet/bullet.gd" id="1_r0yiw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_25qdb"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r0yiw"]
+radius = 0.2
+
+[sub_resource type="Gradient" id="Gradient_r0yiw"]
+offsets = PackedFloat32Array(0.22699386, 0.38650307, 0.6380368)
+colors = PackedColorArray(0.8207403, 0.7530247, 0.32566634, 1, 0.73, 0.16060002, 0.16060002, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxekj"]
+gradient = SubResource("Gradient_r0yiw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uahxb"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_rxekj")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_566ee"]
+material = SubResource("StandardMaterial3D_uahxb")
+size = Vector2(0.4, 0.4)
+
+[node name="Bullet" type="Area3D"]
+script = ExtResource("1_r0yiw")
+
+[node name="BulletMesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_25qdb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_r0yiw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_566ee")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

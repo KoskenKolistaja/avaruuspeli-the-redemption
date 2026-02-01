@@ -59,6 +59,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+button_pressed = true
+text = "Debug mode"
+
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
@@ -161,6 +168,7 @@ item_3/icon = ExtResource("6_bghtg")
 [connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="text_changed" from="PlayerName" to="." method="_on_player_name_text_changed"]
 [connection signal="pressed" from="PlayerName/PlayerIcon" to="." method="_on_player_icon_pressed"]
 [connection signal="item_selected" from="PlayerName/PlayerIcon/IconList" to="." method="_on_icon_list_item_selected"]

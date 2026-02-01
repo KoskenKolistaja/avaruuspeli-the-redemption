@@ -1,6 +1,6 @@
 extends Node
 
-
+var debug_mode = true
 
 var resource_amount = 5
 

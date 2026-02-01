@@ -162,3 +162,10 @@ func _on_icon_list_item_selected(index):
 	%PlayerIcon.icon = load(path_string)
 	%IconList.hide()
 	print("JUUUUUU!!")
+
+
+
+
+
+func _on_check_box_toggled(toggled_on):
+	MetaData.debug_mode = toggled_on

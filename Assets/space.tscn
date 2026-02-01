@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://372cwiqlmyrk"]
+[gd_scene load_steps=18 format=3 uid="uid://372cwiqlmyrk"]
 
 [ext_resource type="Script" uid="uid://dyr5s4vimas0k" path="res://Views/space.gd" id="1_m2q7a"]
 [ext_resource type="Environment" uid="uid://dbqvvyrhvjlpl" path="res://Assets/Environment/space.tres" id="1_wgg4r"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dw2j2jrqffb14" path="res://Assets/Textures/UI Textures/SpaceShip.png" id="12_6rlf0"]
 [ext_resource type="Script" uid="uid://bhsaq83gajbli" path="res://Entities/UI/Notifications/notifications.gd" id="14_5cot1"]
 [ext_resource type="PackedScene" uid="uid://fqx0m8onku2q" path="res://Entities/UI/Notifications/trade_offer.tscn" id="15_5cot1"]
+[ext_resource type="Script" uid="uid://dlio73hdobnr3" path="res://DataManagement/BulletPool.gd" id="16_pcvd3"]
+[ext_resource type="PackedScene" uid="uid://bd2akpeuje8j8" path="res://Entities/Projectiles/Bullet/bullet.tscn" id="17_60pvg"]
 
 [node name="Space" type="Node3D" groups=["space"]]
 process_mode = 1
@@ -196,7 +198,7 @@ warm = true
 has_iron = true
 has_uranium = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="BackUpCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.465973)
 
 [node name="CargoShipContainer" type="Node3D" parent="." groups=["cargo_ship_container"]]
@@ -204,3 +206,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.465973)
 [node name="CargoShipSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://dt3pkdk3g3fgs")
 spawn_path = NodePath("../CargoShipContainer")
+
+[node name="Utility" type="Node3D" parent="."]
+
+[node name="BulletPool" type="Node3D" parent="Utility" groups=["bullet_pool"]]
+script = ExtResource("16_pcvd3")
+bullet_scene = ExtResource("17_60pvg")

@@ -12,8 +12,10 @@ var index = 0
 var songs = [song1,song2,song3,song4,song5]
 
 func _ready():
+	if not multiplayer.is_server():
+		if MetaData.debug_mode:
+			return
 	play_random_song()
-
 
 func _on_finished():
 	play_random_song()
