@@ -22,10 +22,10 @@ func request_spawn_bullet(bullet_transform : Transform3D):
 	if not multiplayer.is_server():
 		return
 	var half_ping = 0
-	if shooter_id:
+	if shooter_id > 1:
 		half_ping = get_client_ping(shooter_id) * 0.5
 	
-	half_ping = half_ping.to_int()
+	half_ping = int(half_ping)
 	
 	spawn_bullet.rpc(bullet_transform,half_ping,shooter_id)
 
@@ -45,7 +45,7 @@ func spawn_bullet(bullet_transform: Transform3D,half_ping: int,shooter_id):
 	
 	print(half_ping)
 	
-	var bullet = _inactive_bullets.pop_back()
+	var bullet = _inactive_bullets.pop_front()
 
 	# --- LATENCY COMPENSATION ---
 	var latency = half_ping
@@ -53,7 +53,7 @@ func spawn_bullet(bullet_transform: Transform3D,half_ping: int,shooter_id):
 	# Fast-forward spawn position
 	var compensated_transform = bullet_transform
 	var direction = bullet_transform.basis.y
-	compensated_transform.origin += direction * latency
+	compensated_transform.origin += direction * (latency/1000.0) * 20.0
 	
 	print("SHOOTER_ID in shooter function: " + str(shooter_id))
 	
