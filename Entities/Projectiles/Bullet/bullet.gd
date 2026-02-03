@@ -28,8 +28,6 @@ func activate():
 
 func _on_body_entered(body):
 	var BulletPool = get_tree().get_first_node_in_group("bullet_pool")
-	
-	
 	if multiplayer.is_server():
 		if body.has_method("get_hit"):
 			body.get_hit()
