@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-@export var id : int
+@export var player_id : int
 
 ## SHIP SETTINGS
 @export_group("Movement Stats")
@@ -38,16 +38,18 @@ var BulletPool
 
 func _enter_tree():
 	# Set the authority based on the node name (which is the peer ID)
-	set_multiplayer_authority(name.to_int())
 	if not multiplayer.is_server():
 		request_sync_position.rpc_id(1)
+	set_multiplayer_authority(name.to_int())
+	player_id = name.to_int()
 
-@rpc("any_peer")
+@rpc("any_peer","reliable")
 func request_sync_position():
 	sync_client_position.rpc(global_position)
 
-@rpc("authority")
+@rpc("any_peer","reliable")
 func sync_client_position(exported_position):
+	print("WAS CALLED")
 	self.global_position = exported_position
 
 
@@ -144,7 +146,6 @@ func move_to_phantom_position(delta):
 	var correction_strength = 10.0
 	velocity = distance_vector * correction_strength
 	velocity = velocity.limit_length(max_speed * 2.0)
-	
 	
 	move_and_slide()
 
@@ -248,3 +249,11 @@ func get_hit():
 	
 	queue_free()
 	
+
+
+
+
+
+
+func _on_tree_exiting():
+	hide_planet_page()

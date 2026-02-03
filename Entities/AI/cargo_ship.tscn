@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dt3pkdk3g3fgs"]
+[gd_scene load_steps=24 format=4 uid="uid://dt3pkdk3g3fgs"]
 
 [ext_resource type="Script" uid="uid://cw1qhdq7331kx" path="res://Entities/AI/cargo_ship.gd" id="1_buq0t"]
 [ext_resource type="Texture2D" uid="uid://dnaqyuah2wasp" path="res://Assets/Textures/UI Textures/Resources/People.png" id="2_yhljl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qftnbjvup0f1" path="res://Assets/Textures/UI Textures/Resources/Ingot.png" id="5_sdqe1"]
 [ext_resource type="Texture2D" uid="uid://luga2yj34fhk" path="res://Assets/Models/BattleSpaceShip/Texture/T_Spase_64.png" id="6_qp3ot"]
 [ext_resource type="Texture2D" uid="uid://movjd15553vc" path="res://Assets/Models/BattleSpaceShip/Texture/T_Spase_blue.png" id="7_ivvue"]
+[ext_resource type="Script" uid="uid://7iaymllweq85" path="res://Entities/AI/cargo_ship_sync.gd" id="8_sdqe1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_buq0t"]
 
@@ -167,6 +168,9 @@ properties/9/path = NodePath(".:synced_velocity")
 properties/9/spawn = true
 properties/9/replication_mode = 1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sdqe1"]
+radius = 1.3359253
+
 [node name="CargoShip" type="Node3D"]
 script = ExtResource("1_buq0t")
 population_icon = ExtResource("2_yhljl")
@@ -213,7 +217,18 @@ libraries = {
 autoplay = "lightflicker"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_interval = 5.0
+unique_name_in_owner = true
+replication_interval = 0.1
 replication_config = SubResource("SceneReplicationConfig_ivvue")
+public_visibility = false
+
+[node name="CargoShipSync" type="Area3D" parent="." node_paths=PackedStringArray("synchronizer")]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource("8_sdqe1")
+synchronizer = NodePath("../MultiplayerSynchronizer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CargoShipSync"]
+shape = SubResource("SphereShape3D_sdqe1")
 
 [connection signal="synchronized" from="MultiplayerSynchronizer" to="." method="_on_multiplayer_synchronizer_synchronized"]

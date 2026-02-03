@@ -28,7 +28,6 @@ func spawn_bullet(bullet_transform: Transform3D,server_time_ms: int):
 	if _inactive_bullets.is_empty():
 		return null
 	
-	print("BULLET SPAWN FUNCTION TRIGGERED")
 	
 	var bullet = _inactive_bullets.pop_back()
 
@@ -53,5 +52,5 @@ func spawn_bullet(bullet_transform: Transform3D,server_time_ms: int):
 
 func despawn_bullet(bullet: Node3D):
 	bullet.visible = false
-	bullet.process_mode = Node.PROCESS_MODE_DISABLED
+	bullet.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	_inactive_bullets.append(bullet)

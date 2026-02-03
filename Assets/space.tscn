@@ -19,11 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://bd2akpeuje8j8" path="res://Entities/Projectiles/Bullet/bullet.tscn" id="17_60pvg"]
 [ext_resource type="PackedScene" uid="uid://3vk6xomjwhfc" path="res://Entities/UI/PlayerSpawner/player_spawner.tscn" id="18_60pvg"]
 
-[node name="Space" type="Node3D" groups=["space"]]
+[node name="Space" type="Node3D" node_paths=PackedStringArray("players_container") groups=["space"]]
 process_mode = 1
 script = ExtResource("1_m2q7a")
 player_scene = ExtResource("4_rfnn0")
 player_spawner = ExtResource("18_60pvg")
+players_container = NodePath("Containers/PlayerContainer")
 
 [node name="Ambient" type="Node3D" parent="."]
 
@@ -66,13 +67,32 @@ layout_mode = 2
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://8f5b0k70rwev")
-spawn_path = NodePath("../PlayerContainer")
+spawn_path = NodePath("../Containers/PlayerContainer")
 
-[node name="PlayerContainer" type="Node3D" parent="."]
+[node name="BackUpCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.465973)
 
-[node name="PlanetContainer" type="Node3D" parent="."]
+[node name="CargoShipSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dt3pkdk3g3fgs")
+spawn_path = NodePath("../Containers/CargoShipContainer")
 
-[node name="Planet" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Utility" type="Node3D" parent="."]
+
+[node name="BulletPool" type="Node3D" parent="Utility" groups=["bullet_pool"]]
+script = ExtResource("16_pcvd3")
+bullet_scene = ExtResource("17_60pvg")
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("18_60pvg")]
+
+[node name="Containers" type="Node3D" parent="."]
+
+[node name="PoliceContainer" type="Node3D" parent="Containers"]
+
+[node name="CargoShipContainer" type="Node3D" parent="Containers" groups=["cargo_ship_container"]]
+
+[node name="PlanetContainer" type="Node3D" parent="Containers"]
+
+[node name="Planet" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 planet_visual = ExtResource("5_pu55j")
 size = 10.0
 planet_id = 1
@@ -80,7 +100,7 @@ planet_icon = ExtResource("5_aujwv")
 atmosphere = true
 warm = true
 
-[node name="Planet2" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet2" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 65, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -89,7 +109,7 @@ planet_name = "Mingion"
 planet_icon = ExtResource("6_pu55j")
 has_uranium = true
 
-[node name="Planet3" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet3" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 31, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -99,7 +119,7 @@ planet_icon = ExtResource("9_rl073")
 atmosphere = true
 has_iron = true
 
-[node name="Planet4" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet4" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59, -42, 0)
 planet_visual = ExtResource("7_rl073")
 size = 15.0
@@ -108,7 +128,7 @@ planet_name = "Tawara"
 planet_icon = ExtResource("10_pu75q")
 hot = true
 
-[node name="Planet5" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet5" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, -33, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -118,7 +138,7 @@ planet_icon = ExtResource("11_wgg4r")
 atmosphere = true
 has_iron = true
 
-[node name="Planet6" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet6" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, 60, 0)
 planet_visual = ExtResource("5_pu55j")
 size = 7.0
@@ -129,7 +149,7 @@ atmosphere = true
 warm = true
 has_iron = true
 
-[node name="Planet7" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet7" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -333.392, 167.96613, 0)
 planet_visual = ExtResource("5_pu55j")
 size = 10.0
@@ -140,7 +160,7 @@ atmosphere = true
 hot = true
 has_uranium = true
 
-[node name="Planet8" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet8" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -389.68365, 200.46613, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -149,7 +169,7 @@ planet_name = "Menzin"
 planet_icon = ExtResource("6_pu55j")
 hot = true
 
-[node name="Planet9" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet9" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -412.23877, 93.399475, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -159,7 +179,7 @@ planet_icon = ExtResource("9_rl073")
 atmosphere = true
 has_iron = true
 
-[node name="Planet10" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet10" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -326.51892, 95.87063, 0)
 planet_visual = ExtResource("7_rl073")
 size = 15.0
@@ -168,7 +188,7 @@ planet_name = "Manzer"
 planet_icon = ExtResource("10_pu75q")
 has_iron = true
 
-[node name="Planet11" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet11" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -252.31314, 242.3988, 0)
 planet_visual = ExtResource("7_rl073")
 size = 5.0
@@ -177,7 +197,7 @@ planet_name = "Sezer"
 planet_icon = ExtResource("11_wgg4r")
 atmosphere = true
 
-[node name="Planet12" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet12" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, -332.85352, 288.8988, 0)
 planet_visual = ExtResource("5_pu55j")
 size = 7.0
@@ -187,7 +207,7 @@ planet_icon = ExtResource("12_6rlf0")
 atmosphere = true
 has_iron = true
 
-[node name="Planet13" parent="PlanetContainer" instance=ExtResource("2_x3nny")]
+[node name="Planet13" parent="Containers/PlanetContainer" instance=ExtResource("2_x3nny")]
 transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, 28.146484, -30.101196, 0)
 planet_visual = ExtResource("5_pu55j")
 size = 10.0
@@ -200,19 +220,4 @@ warm = true
 has_iron = true
 has_uranium = true
 
-[node name="BackUpCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.465973)
-
-[node name="CargoShipContainer" type="Node3D" parent="." groups=["cargo_ship_container"]]
-
-[node name="CargoShipSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://dt3pkdk3g3fgs")
-spawn_path = NodePath("../CargoShipContainer")
-
-[node name="Utility" type="Node3D" parent="."]
-
-[node name="BulletPool" type="Node3D" parent="Utility" groups=["bullet_pool"]]
-script = ExtResource("16_pcvd3")
-bullet_scene = ExtResource("17_60pvg")
-
-[node name="PlayerSpawner" parent="." instance=ExtResource("18_60pvg")]
+[node name="PlayerContainer" type="Node3D" parent="Containers"]

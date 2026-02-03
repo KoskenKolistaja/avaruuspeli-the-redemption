@@ -1,18 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://4nju5xjsxhmb"]
+[gd_scene load_steps=10 format=3 uid="uid://4nju5xjsxhmb"]
 
 [ext_resource type="Script" uid="uid://dtxmtlm0kimxn" path="res://Entities/Planets/planet.gd" id="1_asytt"]
 [ext_resource type="Script" uid="uid://c0wwb4pc21ucl" path="res://Entities/Planets/planet_body.gd" id="2_6vn1t"]
 [ext_resource type="Script" uid="uid://cmjtdogebs500" path="res://Entities/Planets/income_handler.gd" id="3_1qwtq"]
 [ext_resource type="Script" uid="uid://bgmqitnjioby3" path="res://Entities/Planets/auto_sender.gd" id="4_mgcjh"]
 [ext_resource type="PackedScene" uid="uid://dt3pkdk3g3fgs" path="res://Entities/AI/cargo_ship.tscn" id="5_asytt"]
+[ext_resource type="Script" uid="uid://blq5nejpcbonv" path="res://Entities/Planets/planet_sync.gd" id="6_asytt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_denno"]
 radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_asytt"]
+radius = 6.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_asytt"]
+properties/0/path = NodePath("..:population")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("..:food")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("..:technology")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("..:iron")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("..:uranium")
+properties/4/spawn = true
+properties/4/replication_mode = 1
 
 [node name="Planet" type="Node3D" groups=["planet"]]
 script = ExtResource("1_asytt")
 
 [node name="PlanetBody" type="StaticBody3D" parent="." groups=["planet_body"]]
+collision_layer = 513
 script = ExtResource("2_6vn1t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlanetBody"]
@@ -42,10 +64,24 @@ wait_time = 2.0
 [node name="TradeTimer" type="Timer" parent="AutoSender"]
 wait_time = 10.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SyncTimer" type="Timer" parent="."]
+
+[node name="PlanetSync" type="Area3D" parent="." node_paths=PackedStringArray("synchronizer")]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource("6_asytt")
+synchronizer = NodePath("MultiplayerSynchronizer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlanetSync"]
+shape = SubResource("SphereShape3D_asytt")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="PlanetSync"]
+replication_interval = 1.0
+replication_config = SubResource("SceneReplicationConfig_asytt")
+public_visibility = false
 
 [connection signal="timeout" from="IncomeHandler/Timer" to="IncomeHandler" method="_on_timer_timeout"]
 [connection signal="timeout" from="IncomeHandler/PopulationTimer" to="IncomeHandler" method="_on_population_timer_timeout"]
 [connection signal="timeout" from="AutoSender/Timer" to="AutoSender" method="_on_timer_timeout"]
 [connection signal="timeout" from="AutoSender/TradeTimer" to="AutoSender" method="_on_trade_timer_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SyncTimer" to="." method="_on_sync_timer_timeout"]

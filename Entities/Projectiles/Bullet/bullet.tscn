@@ -1,45 +1,58 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd2akpeuje8j8"]
+[gd_scene load_steps=10 format=3 uid="uid://bd2akpeuje8j8"]
 
 [ext_resource type="Script" uid="uid://crsexasi18t01" path="res://Entities/Projectiles/Bullet/bullet.gd" id="1_r0yiw"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_25qdb"]
-radius = 0.2
-height = 0.4
+[ext_resource type="Texture2D" uid="uid://dbqiyhjkdrriw" path="res://Assets/Textures/FX/BlasterShot.png" id="2_rxekj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r0yiw"]
 radius = 0.2
 
-[sub_resource type="Gradient" id="Gradient_r0yiw"]
-offsets = PackedFloat32Array(0.22699386, 0.38650307, 0.6380368)
-colors = PackedColorArray(0.8207403, 0.7530247, 0.32566634, 1, 0.73, 0.16060002, 0.16060002, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxekj"]
-gradient = SubResource("Gradient_r0yiw")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uahxb"]
 transparency = 1
+cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("GradientTexture2D_rxekj")
-billboard_mode = 1
+albedo_color = Color(0.985, 1, 0.82, 1)
+albedo_texture = ExtResource("2_rxekj")
 
 [sub_resource type="QuadMesh" id="QuadMesh_566ee"]
 material = SubResource("StandardMaterial3D_uahxb")
-size = Vector2(0.4, 0.4)
+size = Vector2(0.5, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rxekj"]
+size = Vector2(3, 3)
+
+[sub_resource type="Gradient" id="Gradient_rxekj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.031446543, 0.6918239)
+colors = PackedColorArray(0.84, 0.602, 0, 0.40784314, 1, 0.9666667, 0, 0.05490196, 1, 0.49, 0.49, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uahxb"]
+gradient = SubResource("Gradient_rxekj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_566ee"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_uahxb")
+billboard_mode = 1
 
 [node name="Bullet" type="Area3D"]
 script = ExtResource("1_r0yiw")
-
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_25qdb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_r0yiw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_566ee")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_566ee")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.014891863)
+mesh = SubResource("QuadMesh_rxekj")
+surface_material_override/0 = SubResource("StandardMaterial3D_566ee")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

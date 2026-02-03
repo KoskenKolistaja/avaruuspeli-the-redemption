@@ -4,7 +4,7 @@ extends Node3D
 @export var player_spawner : PackedScene
 
 # Reference to the node where players will be added
-@onready var players_container = $PlayerContainer
+@export var players_container: Node3D
 
 func _ready():
 	print(PlayerData.players)
@@ -12,8 +12,10 @@ func _ready():
 	# The MultiplayerSpawner will replicate these spawns to all clients.
 	if not multiplayer.is_server():
 		spawn_info()
+		push_error("This is client thread")
 		return
-	
+	else:
+		push_error("This is server thread")
 	
 	## 1. Spawn players who are already in the PlayerData dictionary
 	## (Host + anyone who joined while in the lobby)

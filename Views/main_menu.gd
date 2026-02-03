@@ -161,7 +161,6 @@ func _on_icon_list_item_selected(index):
 	local_player_icon_path = path_string
 	%PlayerIcon.icon = load(path_string)
 	%IconList.hide()
-	print("JUUUUUU!!")
 
 
 

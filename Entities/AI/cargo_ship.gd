@@ -30,6 +30,7 @@ var speed = 0.05
 
 func _ready():
 	
+	
 	if not multiplayer.is_server():
 		return
 	
@@ -118,7 +119,7 @@ func _physics_process(delta):
 
 func _client_interpolate(delta):
 	# Smoothly move position
-	sync_position += synced_velocity * delta
+	#sync_position += synced_velocity * delta
 	#global_position = global_position.lerp(sync_position, 0.01)
 	global_position = sync_position
 	# Smoothly interpolate rotation (using lerp_angle to prevent 360-degree snapping)

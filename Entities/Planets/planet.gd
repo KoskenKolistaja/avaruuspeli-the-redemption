@@ -32,11 +32,11 @@ class_name Planet
 
 #Planet resources
 
-var population : int = 10
-var food : int = 5000
-var technology : int = 0
-var iron : int = 0
-var uranium : int = 0
+@export var population : int = 10
+@export var food : int = 5000
+@export var technology : int = 0
+@export var iron : int = 0
+@export var uranium : int = 0
 
 #Planet income
 
@@ -76,9 +76,9 @@ func _ready():
 	if owner_id == 999:
 		setup_npc()
 	
-	await get_tree().create_timer(randf_range(0,1)).timeout
-	if multiplayer.is_server():
-		$Timer.start()
+	#await get_tree().create_timer(randf_range(0,1)).timeout
+	#if multiplayer.is_server():
+		#$SyncTimer.start()
 
 func set_owner_id(exported_id):
 	owner_id = exported_id
@@ -341,37 +341,37 @@ func get_food() -> int:
 	#iron_increase = data[7]
 	#uranium_increase = data[8]
 
-func _on_timer_timeout():
-	# 1. Pack Resources into Int array (Order: Pop, Food, Tech, Iron, Ur)
-	# Use PackedInt64Array if your resources will exceed 2 Billion.
-	# Use PackedInt32Array to save bandwidth (4 bytes per number vs 8).
-	var res_data = PackedInt32Array([
-		population, 
-		food, 
-		technology, 
-		iron, 
-		uranium,
-		desired_population,
-	])
-	
-	
-	sync_planet_data.rpc(res_data)
-
-
-@rpc("authority", "call_remote", "reliable")
-func sync_planet_data(res_data: PackedInt32Array):
-	# Unpack Integers
-	population = res_data[0]
-	food       = res_data[1]
-	technology = res_data[2]
-	iron       = res_data[3]
-	uranium    = res_data[4]
-	desired_population = res_data[5]
+#func _on_sync_timer_timeout():
+	## 1. Pack Resources into Int array (Order: Pop, Food, Tech, Iron, Ur)
+	## Use PackedInt64Array if your resources will exceed 2 Billion.
+	## Use PackedInt32Array to save bandwidth (4 bytes per number vs 8).
+	#var res_data = PackedInt32Array([
+		#population, 
+		#food, 
+		#technology, 
+		#iron, 
+		#uranium,
+		#desired_population,
+	#])
+	#
+	#
+	#sync_planet_data.rpc(res_data)
+#
+#
+#@rpc("authority", "call_remote", "reliable")
+#func sync_planet_data(res_data: PackedInt32Array):
+	## Unpack Integers
+	#population = res_data[0]
+	#food       = res_data[1]
+	#technology = res_data[2]
+	#iron       = res_data[3]
+	#uranium    = res_data[4]
+	#desired_population = res_data[5]
 
 func request_change_owner(exported_id):
 	set_planet_owner.rpc_id(1,exported_id)
 
-@rpc("any_peer","call_local","reliable")
+@rpc("any_peer","call_local","reliable",)
 func set_planet_owner(exported_id):
 	if not owner_id:
 		owner_id = exported_id

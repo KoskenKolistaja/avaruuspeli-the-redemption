@@ -155,7 +155,7 @@ func _on_spawn_button_pressed():
 	var space = get_tree().get_first_node_in_group("space")
 	assert(space,"NO SPACE FOUND!")
 	
-	var position_to_export = target_pos + Vector3(0,10,0)
+	var position_to_export = target_pos + Vector3(0,randf_range(9,11),0)
 	
 	space.request_spawn_player.rpc_id(1,multiplayer.get_unique_id(),position_to_export)
 

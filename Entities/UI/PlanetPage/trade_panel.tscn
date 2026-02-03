@@ -69,10 +69,9 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_74v1c")
-current_tab = 1
+current_tab = 0
 
 [node name="Shipments" type="Panel" parent="Panel/Panel"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -111,6 +110,7 @@ size_flags_vertical = 8
 text = "New Shipment"
 
 [node name="Trades" type="Panel" parent="Panel/Panel"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -126,18 +126,10 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_74v1c")
 horizontal_scroll_mode = 0
 
-[node name="NewTradeButton" type="Button" parent="Panel/Panel/Trades/ScrollContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "New Trade"
-
 [node name="TradeContainer" type="VBoxContainer" parent="Panel/Panel/Trades/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-
-[node name="TradeButton" parent="Panel/Panel/Trades/ScrollContainer/TradeContainer" instance=ExtResource("3_i65yt")]
-layout_mode = 2
 
 [node name="NewTradeButton" type="Button" parent="Panel/Panel/Trades"]
 layout_mode = 1
@@ -168,6 +160,5 @@ icon = ExtResource("4_i65yt")
 expand_icon = true
 
 [connection signal="pressed" from="Panel/Panel/Shipments/NewShipmentButton" to="." method="_on_new_shipment_button_pressed"]
-[connection signal="pressed" from="Panel/Panel/Trades/ScrollContainer/NewTradeButton" to="." method="_on_new_trade_button_pressed"]
 [connection signal="pressed" from="Panel/Panel/Trades/NewTradeButton" to="." method="_on_new_trade_button_pressed"]
 [connection signal="pressed" from="Panel/ExitButton" to="." method="_on_exit_button_pressed"]
