@@ -19,6 +19,8 @@ var BulletPool
 
 var shot_loaded = true
 
+var has_initial_sync
+
 enum STATE {
 	STANDBY,
 	CHASING,
@@ -61,19 +63,16 @@ func _ready():
 	if multiplayer.is_server():
 		target = get_tree().get_first_node_in_group("player")
 		BulletPool = get_tree().get_first_node_in_group("bullet_pool")
-
+	else:
+		$CollisionShape3D.disabled = true
 
 func chase(delta):
 	var vector = target.global_position - self.global_position
 	rotate_toward_direction_smoothly(vector,delta)
 	
-	var target_velocity = basis.y * max_speed * 60
-	base_velocity = base_velocity.move_toward(target_velocity,10)
-	synced_velocity = base_velocity
-	
-	
-	velocity = base_velocity * delta
-	
+	var target_velocity = basis.y * 9
+	velocity = velocity.move_toward(target_velocity,delta*5)
+	synced_velocity = velocity
 	
 	
 	if vector.length() < TARGETING_DISTANCE:
@@ -91,10 +90,8 @@ func aim_and_shoot(delta):
 		state = STATE.CHASING
 	
 	var target_velocity = Vector3.ZERO
-	base_velocity = base_velocity.move_toward(target_velocity,10)
-	synced_velocity = base_velocity
-	
-	velocity = base_velocity * delta
+	velocity = velocity.move_toward(target_velocity,delta*5)
+	synced_velocity = velocity
 	
 	if shot_loaded:
 		shoot()
@@ -125,7 +122,6 @@ func standby(delta):
 	base_velocity = base_velocity.move_toward(target_velocity,10)
 	synced_velocity = base_velocity
 	velocity = base_velocity * delta
-	print("Standing by")
 
 
 
@@ -133,9 +129,20 @@ func standby(delta):
 
 
 func _client_interpolate(delta):
+	
+	#if sync_position == Vector3.ZERO:
+		#return
+	
+	if not has_initial_sync:
+		# Hard sync ONCE
+		global_position = sync_position
+		rotation.z = sync_rotation_z
+		has_initial_sync = true
+		return
 	# 1. Update the ghost position based on the last known server velocity
 	# This keeps the ship moving even if we haven't received a packet lately
 	sync_position += synced_velocity * delta
+	
 	
 	# 2. Smoothly pull the current position toward the server's sync_position
 	# We use lerp to close the gap created by latency
@@ -175,3 +182,15 @@ func get_hit():
 
 func _on_shoot_timer_timeout():
 	shot_loaded = true
+
+
+#func _on_multiplayer_synchronizer_visibility_changed(for_peer):
+	#hard_sync_position.rpc_id(for_peer,self.global_position)
+#
+#@rpc("authority")
+#func hard_sync_position(exported_position):
+	#global_position = exported_position
+
+
+func _on_visibility_changed():
+	has_initial_sync = false

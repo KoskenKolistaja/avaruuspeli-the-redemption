@@ -3,7 +3,7 @@ extends Node3D
 
 @export var police_scene : PackedScene
 
-
+var outlaws = []
 
 
 
@@ -12,6 +12,9 @@ func _ready():
 	if multiplayer.is_server():
 		$Timer.start()
 
+
+func add_outlaw(exported_id):
+	outlaws.append(exported_id)
 
 
 

@@ -23,7 +23,7 @@ func request_spawn_bullet(bullet_transform : Transform3D):
 	spawn_bullet.rpc(bullet_transform,Time.get_ticks_msec())
 
 
-@rpc("authority","call_local")
+@rpc("authority","call_local","reliable")
 func spawn_bullet(bullet_transform: Transform3D,server_time_ms: int):
 	if _inactive_bullets.is_empty():
 		return null

@@ -104,4 +104,6 @@ pixel_size = 0.03
 billboard = 2
 text = "target"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="visibility_changed" from="MultiplayerSynchronizer" to="." method="_on_multiplayer_synchronizer_visibility_changed"]

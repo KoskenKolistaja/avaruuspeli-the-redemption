@@ -21,7 +21,7 @@ func activate():
 	await get_tree().create_timer(2).timeout
 	var BulletPool = get_tree().get_first_node_in_group("bullet_pool")
 	BulletPool.despawn_bullet(self)
-
+	print("Bullet timed out: " + str(Time.get_ticks_msec()))
 
 
 
@@ -29,8 +29,9 @@ func activate():
 
 func _on_body_entered(body):
 	var BulletPool = get_tree().get_first_node_in_group("bullet_pool")
-	print(body)
+	print("Bullet hit something")
 	BulletPool.despawn_bullet(self)
+	
 	if multiplayer.is_server():
 		if body.has_method("get_hit"):
 			body.get_hit()

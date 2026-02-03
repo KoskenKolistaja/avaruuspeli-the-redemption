@@ -20,7 +20,6 @@ func _ready():
 
 func _on_area_entered(area):
 	if multiplayer.is_server():
-		print(area)
 		area.enable_sync_for(player_id)
 
 

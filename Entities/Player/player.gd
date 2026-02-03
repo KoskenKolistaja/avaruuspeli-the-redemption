@@ -34,6 +34,7 @@ var BulletPool
 
 @export var camera : Camera3D
 
+var shot_loaded = true
 
 
 func _enter_tree():
@@ -96,7 +97,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func shoot():
 	var bullet_transform = $Barrel.global_transform
 	BulletPool.request_spawn_bullet.rpc_id(1,bullet_transform)
-
+	shot_loaded = false
 
 
 func _physics_process(delta: float) -> void:
@@ -127,9 +128,10 @@ func _physics_process(delta: float) -> void:
 		check_distance_to_planet()
 
 func handle_input():
-	if Input.is_action_just_pressed("mouse1"):
-		shoot()
-
+	if Input.is_action_pressed("mouse1"):
+		if shot_loaded:
+			shoot()
+			$ShootTimer.start()
 
 
 func add_phantom_position_velocity(delta):
@@ -241,13 +243,13 @@ func _on_planet_catcher_body_entered(body):
 
 
 
-#func get_hit():
-	#var id = name.to_int()
-	#var space = get_tree().get_first_node_in_group("space")
-	#
-	#space.spawn_player_spawner.rpc_id(id)
-	#
-	#queue_free()
+func get_hit():
+	var id = name.to_int()
+	var space = get_tree().get_first_node_in_group("space")
+	
+	space.spawn_player_spawner.rpc_id(id)
+	
+	queue_free()
 
 
 
@@ -257,3 +259,7 @@ func _on_planet_catcher_body_entered(body):
 
 func _on_tree_exiting():
 	hide_planet_page()
+
+
+func _on_shoot_timer_timeout():
+	shot_loaded = true
