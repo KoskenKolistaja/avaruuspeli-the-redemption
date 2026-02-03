@@ -111,7 +111,7 @@ func get_predicted_position(target_node: Node3D, bullet_speed: float) -> Vector3
 
 func shoot():
 	var bullet_transform = $Barrel.global_transform
-	BulletPool.request_spawn_bullet.rpc_id(1,bullet_transform)
+	BulletPool.spawn_bullet.rpc_id(1,bullet_transform,Time.get_ticks_msec(),null)
 	$ShootTimer.start()
 	shot_loaded = false
 
