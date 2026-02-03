@@ -73,7 +73,7 @@ properties/3/spawn = false
 properties/3/replication_mode = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lu8i8"]
-radius = 90.03593
+radius = 118.31163
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["player"]]
 script = ExtResource("1_mv1ah")

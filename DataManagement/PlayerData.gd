@@ -17,7 +17,7 @@ var player_icons = { 999: npc_icon }
 
 func get_player(exported_id):
 	for player in get_tree().get_nodes_in_group("player"):
-		if "id" in player and player.id == exported_id:
+		if "player_id" in player and player.player_id == exported_id:
 			return player
 	return null
 

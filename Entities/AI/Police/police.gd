@@ -35,23 +35,13 @@ func _physics_process(delta):
 		_client_interpolate(delta)
 		return
 	else:
-		if is_instance_valid(target):
-			
-			match state:
-				STATE.CHASING:
-					chase(delta)
-				STATE.SHOOTING:
-					aim_and_shoot(delta)
-			
-			
-			
-			
-		elif multiplayer.is_server():
-			target = get_tree().get_first_node_in_group("player")
-			if target:
-				state = STATE.CHASING
-			else:
-				state = STATE.STANDBY
+		
+		match state:
+			STATE.CHASING:
+				chase(delta)
+			STATE.SHOOTING:
+				aim_and_shoot(delta)
+			STATE.STANDBY:
 				standby(delta)
 	
 	sync_position = global_position
@@ -61,12 +51,15 @@ func _physics_process(delta):
 
 func _ready():
 	if multiplayer.is_server():
-		target = get_tree().get_first_node_in_group("player")
 		BulletPool = get_tree().get_first_node_in_group("bullet_pool")
 	else:
 		$CollisionShape3D.disabled = true
 
 func chase(delta):
+	if not is_instance_valid(target):
+		state = STATE.STANDBY
+		return
+	
 	var vector = target.global_position - self.global_position
 	rotate_toward_direction_smoothly(vector,delta)
 	
@@ -80,6 +73,11 @@ func chase(delta):
 	
 
 func aim_and_shoot(delta):
+	
+	if not is_instance_valid(target):
+		state = STATE.STANDBY
+		return
+	
 	var vector = target.global_position - self.global_position
 	var bullet_speed = 20
 	var predicted_position = get_predicted_position(target,bullet_speed)
@@ -122,7 +120,9 @@ func standby(delta):
 	base_velocity = base_velocity.move_toward(target_velocity,10)
 	synced_velocity = base_velocity
 	velocity = base_velocity * delta
-
+	
+	if is_instance_valid(target):
+		state = STATE.CHASING
 
 
 

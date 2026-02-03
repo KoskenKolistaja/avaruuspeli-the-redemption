@@ -84,7 +84,7 @@ spawn_path = NodePath("../Containers/CargoShipContainer")
 script = ExtResource("16_pcvd3")
 bullet_scene = ExtResource("17_60pvg")
 
-[node name="LawManager" type="Node3D" parent="Utility"]
+[node name="LawManager" type="Node3D" parent="Utility" groups=["law_manager"]]
 script = ExtResource("10_m4w2j")
 police_scene = ExtResource("10_kfvn8")
 

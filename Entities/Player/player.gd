@@ -43,6 +43,7 @@ func _enter_tree():
 		request_sync_position.rpc_id(1)
 	set_multiplayer_authority(name.to_int())
 	player_id = name.to_int()
+	PlayerData.players
 
 @rpc("any_peer","reliable")
 func request_sync_position():
@@ -248,7 +249,8 @@ func get_hit():
 	var space = get_tree().get_first_node_in_group("space")
 	
 	space.spawn_player_spawner.rpc_id(id)
-	
+	var law = get_tree().get_first_node_in_group("law_manager")
+	law.remove_outlaw(player_id)
 	queue_free()
 
 

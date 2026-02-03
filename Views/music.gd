@@ -6,10 +6,12 @@ var song2 = preload("res://Assets/Audio/Music/LeavingHome.ogg")
 var song3 = preload("res://Assets/Audio/Music/MeansToSurvive.ogg")
 var song4 = preload("res://Assets/Audio/Music/Revelation.ogg")
 var song5 = preload("res://Assets/Audio/Music/Uncharted.ogg")
+var song6 = preload("res://Assets/Audio/Music/MartianOffense.ogg")
 
 var index = 0
 
 var songs = [song1,song2,song3,song4,song5]
+var battle_songs = [song6]
 
 func _ready():
 	if not multiplayer.is_server():
@@ -19,6 +21,11 @@ func _ready():
 
 func _on_finished():
 	play_random_song()
+
+
+func switch_to_battle_song():
+	stream = battle_songs[0]
+	play()
 
 
 func play_random_song():
