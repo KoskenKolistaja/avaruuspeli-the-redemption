@@ -241,14 +241,14 @@ func _on_planet_catcher_body_entered(body):
 
 
 
-func get_hit():
-	var id = name.to_int()
-	var space = get_tree().get_first_node_in_group("space")
-	
-	space.spawn_player_spawner.rpc_id(id)
-	
-	queue_free()
-	
+#func get_hit():
+	#var id = name.to_int()
+	#var space = get_tree().get_first_node_in_group("space")
+	#
+	#space.spawn_player_spawner.rpc_id(id)
+	#
+	#queue_free()
+
 
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://ck2gxabcwgv6f"]
+[gd_scene load_steps=11 format=4 uid="uid://ck2gxabcwgv6f"]
 
 [ext_resource type="Script" uid="uid://c2uwmir8q4lmu" path="res://Entities/AI/Police/police.gd" id="1_r8vmd"]
 [ext_resource type="Texture2D" uid="uid://movjd15553vc" path="res://Assets/Models/BattleSpaceShip/Texture/T_Spase_blue.png" id="2_r8vmd"]
+[ext_resource type="Script" uid="uid://dxkkkbydvp2y0" path="res://Entities/AI/Police/police_sync.gd" id="3_jjmfw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6o57k"]
 radius = 0.2290039
@@ -49,7 +50,21 @@ shadow_mesh = SubResource("ArrayMesh_c6xwf")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roux7"]
 albedo_texture = ExtResource("2_r8vmd")
 
-[node name="Police" type="CharacterBody3D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_r8vmd"]
+properties/0/path = NodePath(".:synced_velocity")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:sync_position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:sync_rotation_z")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r8vmd"]
+radius = 0.94003457
+
+[node name="Police" type="CharacterBody3D" groups=["police"]]
 script = ExtResource("1_r8vmd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -61,3 +76,32 @@ transform = Transform3D(-6.5567074e-10, -6.5567085e-10, -0.015, -0.015, -6.55670
 mesh = SubResource("ArrayMesh_r2354")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_roux7")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Barrel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.2
+replication_config = SubResource("SceneReplicationConfig_r8vmd")
+public_visibility = false
+
+[node name="PoliceSync" type="Area3D" parent="." node_paths=PackedStringArray("synchronizer")]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource("3_jjmfw")
+synchronizer = NodePath("../MultiplayerSynchronizer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoliceSync"]
+shape = SubResource("SphereShape3D_r8vmd")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7037761)
+visible = false
+pixel_size = 0.03
+billboard = 2
+text = "target"
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

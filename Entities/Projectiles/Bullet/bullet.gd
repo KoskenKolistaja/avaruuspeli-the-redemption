@@ -12,7 +12,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	global_position += direction * delta
+	global_position += direction.normalized() * 20 * delta
 
 
 

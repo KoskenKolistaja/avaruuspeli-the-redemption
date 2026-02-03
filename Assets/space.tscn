@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://372cwiqlmyrk"]
+[gd_scene load_steps=21 format=3 uid="uid://372cwiqlmyrk"]
 
 [ext_resource type="Script" uid="uid://dyr5s4vimas0k" path="res://Views/space.gd" id="1_m2q7a"]
 [ext_resource type="Environment" uid="uid://dbqvvyrhvjlpl" path="res://Assets/Environment/space.tres" id="1_wgg4r"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dh1jshmsw4bc7" path="res://Assets/Textures/UI Textures/UIBox.png" id="6_pu55j"]
 [ext_resource type="PackedScene" uid="uid://cl41ymny7nbsv" path="res://Entities/Planets/Visuals/ice_planet.tscn" id="7_rl073"]
 [ext_resource type="Texture2D" uid="uid://b3ft1fht7dx4o" path="res://Assets/Textures/UI Textures/SpeechBubble.png" id="9_rl073"]
+[ext_resource type="PackedScene" uid="uid://ck2gxabcwgv6f" path="res://Entities/AI/Police/police.tscn" id="10_kfvn8"]
+[ext_resource type="Script" uid="uid://dky1ojtwlaohk" path="res://DataManagement/law_manager.gd" id="10_m4w2j"]
 [ext_resource type="Texture2D" uid="uid://du85jgw8i742a" path="res://Assets/Textures/UI Textures/Ammo.png" id="10_pu75q"]
 [ext_resource type="Texture2D" uid="uid://bo56i7frnidqw" path="res://Assets/Textures/UI Textures/Tube.png" id="11_wgg4r"]
 [ext_resource type="Texture2D" uid="uid://dw2j2jrqffb14" path="res://Assets/Textures/UI Textures/SpaceShip.png" id="12_6rlf0"]
@@ -82,11 +84,18 @@ spawn_path = NodePath("../Containers/CargoShipContainer")
 script = ExtResource("16_pcvd3")
 bullet_scene = ExtResource("17_60pvg")
 
+[node name="LawManager" type="Node3D" parent="Utility"]
+script = ExtResource("10_m4w2j")
+police_scene = ExtResource("10_kfvn8")
+
+[node name="Timer" type="Timer" parent="Utility/LawManager"]
+wait_time = 3.0
+
 [node name="PlayerSpawner" parent="." instance=ExtResource("18_60pvg")]
 
 [node name="Containers" type="Node3D" parent="."]
 
-[node name="PoliceContainer" type="Node3D" parent="Containers"]
+[node name="PoliceContainer" type="Node3D" parent="Containers" groups=["police_container"]]
 
 [node name="CargoShipContainer" type="Node3D" parent="Containers" groups=["cargo_ship_container"]]
 
@@ -221,3 +230,9 @@ has_iron = true
 has_uranium = true
 
 [node name="PlayerContainer" type="Node3D" parent="Containers"]
+
+[node name="PoliceSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://ck2gxabcwgv6f")
+spawn_path = NodePath("../Containers/PoliceContainer")
+
+[connection signal="timeout" from="Utility/LawManager/Timer" to="Utility/LawManager" method="_on_timer_timeout"]

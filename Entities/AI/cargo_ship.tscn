@@ -218,7 +218,7 @@ autoplay = "lightflicker"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 unique_name_in_owner = true
-replication_interval = 0.1
+replication_interval = 2.0
 replication_config = SubResource("SceneReplicationConfig_ivvue")
 public_visibility = false
 
