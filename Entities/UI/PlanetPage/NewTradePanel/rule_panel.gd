@@ -58,6 +58,16 @@ func _ready():
 	$MarginContainer/HBoxContainer/ResourceButton.select(0)
 	$MarginContainer/HBoxContainer/ConditionButton.select(0)
 	
+	
+	$MarginContainer/HBoxContainer/ResourceButton.connect("item_selected",change_made)
+	$MarginContainer/HBoxContainer/ConditionButton.connect("item_selected",change_made)
+	$MarginContainer/HBoxContainer/Amount.connect("value_changed",change_made)
+
+
+
+func change_made(null_value = 0):
+	get_parent().change_made()
+
 
 func rule_test():
 	print(get_rule())
@@ -97,4 +107,5 @@ func init_data():
 
 
 func _on_delete_button_pressed():
+	change_made(0)
 	hide()

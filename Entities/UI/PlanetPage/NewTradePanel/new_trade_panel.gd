@@ -63,14 +63,13 @@ func _ready():
 	if saved_trade_data:
 		init_from_dictionary(saved_trade_data)
 	
-	if not is_initial:
-		%PlayersOptionButton.disabled = true
+
 
 
 #This function is used when player has incoming trade offer. It reverses participant/validator roles
 func init_from_dictionary(trade_data : Dictionary):
-	push_error(PlayerData.players)
-	push_error(trade_data)
+	#push_error(PlayerData.players)
+	#push_error(trade_data)
 	var your_planet_index = %YourPlanetsOptionButton.get_item_index(trade_data["participant_planet_id"])
 	%YourPlanetsOptionButton.select(your_planet_index)
 	_on_your_planets_option_button_item_selected(your_planet_index)
@@ -95,7 +94,7 @@ func init_from_dictionary(trade_data : Dictionary):
 	%YourItemsContainer.set_items_from_dictionary(your_shipment["cargo"])
 	%TheirItemsContainer.set_items_from_dictionary(their_shipment["cargo"])
 	
-
+	update_buttons()
 
 var trade_dictionary = {
 	"shipments" : ["shipment1","shipment2"],
@@ -197,8 +196,11 @@ func update_buttons():
 		%DenyButton.hide()
 		%CounterOfferButton.hide()
 	else:
+		%AcceptButton.show()
+		%AcceptButton.disabled = false
 		%SendButton.hide()
-
+		%CounterOfferButton.disabled = true
+		%PlayersOptionButton.disabled = true
 
 func update_player_list():
 	%PlayersOptionButton.add_item("<Choose Player>")
@@ -247,12 +249,12 @@ func _on_players_option_button_item_selected(index):
 
 func _on_your_planets_option_button_item_selected(index):
 	your_planet_id = %YourPlanetsOptionButton.get_item_id(index)
-
+	change_made()
 
 func _on_their_planets_option_button_item_selected(index):
 	their_planet_id = %TheirPlanetsOptionButton.get_item_id(index)
 	%InfoLabel.text = "Their planet id is: " + str(their_planet_id)
-
+	change_made()
 
 func _on_accept_button_pressed():
 	var trade_data = parse_trade()
@@ -271,7 +273,6 @@ func _on_send_button_pressed():
 	if not trade_data:
 		return
 	
-	
 	if trade_data["participant_id"] == 999:
 		_on_accept_button_pressed()
 		return
@@ -280,6 +281,12 @@ func _on_send_button_pressed():
 	notifications.send_trade_to_player(trade_data,their_id)
 	if trade_is_ready():
 		queue_free()
+
+
+func change_made():
+	%CounterOfferButton.disabled = false
+	%AcceptButton.disabled = true
+	print("CHANGE MADE")
 
 
 func _on_reset_button_pressed():
@@ -293,3 +300,19 @@ func _on_cancel_button_pressed():
 
 func _on_binding_check_box_toggled(toggled_on):
 	pass # Replace with function body.
+
+
+func _on_counter_offer_button_pressed():
+	var trade_data = parse_trade()
+	
+	if not trade_data:
+		return
+	
+	if trade_data["participant_id"] == 999:
+		_on_accept_button_pressed()
+		return
+	
+	var notifications = get_tree().get_first_node_in_group("notifications")
+	notifications.send_trade_to_player(trade_data,their_id)
+	if trade_is_ready():
+		queue_free()

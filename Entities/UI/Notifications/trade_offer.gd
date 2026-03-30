@@ -14,8 +14,8 @@ func _on_delete_button_pressed():
 
 func _on_pressed():
 	spawn_trade_panel()
-	queue_free()
-
+	notifications_panel.delete_panel(self)
+	notifications_panel.close()
 
 
 

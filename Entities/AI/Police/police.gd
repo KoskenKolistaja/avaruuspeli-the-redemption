@@ -104,14 +104,13 @@ func get_predicted_position(target_node: Node3D, bullet_speed: float) -> Vector3
 	# Predict future position: Current Position + (Velocity * Time)
 	# We use the player's actual velocity property
 	var prediction = target_node.global_position + (target_node.velocity * time_of_flight)
-	
 	return prediction
 
 
 
 func shoot():
 	var bullet_transform = $Barrel.global_transform
-	BulletPool.spawn_bullet.rpc_id(1,bullet_transform,0.0,null)
+	BulletPool.request_spawn_npc_bullet(bullet_transform)
 	$ShootTimer.start()
 	shot_loaded = false
 

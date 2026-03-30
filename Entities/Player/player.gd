@@ -94,11 +94,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		target_zoom = clamp(target_zoom, min_zoom, max_zoom)
 
 
-
+#If not BulletPool return
 func shoot():
 	var bullet_transform = $Barrel.global_transform
-	BulletPool.request_spawn_bullet.rpc_id(1,bullet_transform)
 	shot_loaded = false
+	BulletPool.request_spawn_bullet.rpc_id(1,bullet_transform)
 
 
 func _physics_process(delta: float) -> void:

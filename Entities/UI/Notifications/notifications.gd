@@ -30,9 +30,16 @@ func add_trade_notification(trade_data):
 	%NotificationContainer.add_child(trade_offer_instance,true)
 	update_title()
 
+func close():
+	$FoldableContainer.folded = true
 
+func delete_panel(panel_to_delete):
+	panel_to_delete.queue_free()
+	await get_tree().physics_frame
+	update_title()
 
 
 func update_title():
 	var notifications_amount = %NotificationContainer.get_children().size()
+	print(%NotificationContainer.get_children())
 	$FoldableContainer.title = "Notifications " + "(" + str(notifications_amount) +")"

@@ -15,6 +15,13 @@ var shipment_dictionary_example : Dictionary = {
 func _ready():
 	init_data()
 	$MarginContainer/HBoxContainer/DeleteButton.connect("pressed",_on_delete_button_pressed)
+	$MarginContainer/HBoxContainer/ResourceButton.connect("item_selected",change_made)
+	$MarginContainer/HBoxContainer/Amount.connect("value_changed",change_made)
+
+
+func change_made(null_value):
+	get_parent().change_made()
+
 
 func is_ready():
 	if $MarginContainer/HBoxContainer/Amount.value == 0:
@@ -58,3 +65,5 @@ func get_cargo():
 
 func _on_delete_button_pressed():
 	hide()
+	change_made(0)
+	reset_values()

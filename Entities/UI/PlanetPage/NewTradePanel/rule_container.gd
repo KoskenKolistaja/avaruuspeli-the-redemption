@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @onready var rules: Array[Panel] = []
 
-
+@export var root_panel : Control
 
 
 func _ready():
@@ -12,6 +12,7 @@ func _ready():
 			child.visible = false
 	
 	$AddConditionButton.pressed.connect(show_next_rule)
+	$AddConditionButton.pressed.connect(change_made)
 
 var shipment_dictionary_example : Dictionary = {
 	"sender_id": 1,
@@ -29,9 +30,23 @@ var shipment_dictionary_example : Dictionary = {
 		}
 }
 
+
+func change_made():
+	root_panel.change_made()
+
+
 func set_rules_from_dictionary(rules_dictionary : Dictionary):
+	reset_rules()
 	for id_key in rules_dictionary:
 		activate_next_rule(rules_dictionary[id_key])
+
+func reset_rules():
+	for c in get_children():
+		if c.has_method("reset_values"):
+			c.reset_values()
+			c.hide()
+
+
 
 func activate_next_rule(rule_dictionary):
 	for rule in rules:

@@ -2,21 +2,36 @@ extends VBoxContainer
 
 @onready var items: Array[Panel] = []
 
+@export var root_panel : Control
+
 func _ready():
 	for child in get_children():
 		if child is Panel:
 			items.append(child)
 	
 	$AddItemButton.pressed.connect(show_next_item)
+	$AddItemButton.pressed.connect(change_made)
 
 
+func change_made():
+	root_panel.change_made()
 
 
 
 func set_items_from_dictionary(dic : Dictionary):
+	reset_items()
 	for key in dic:
 		if dic[key] > 0:
 			activate_next_item(key,dic[key])
+
+
+func reset_items():
+	for c in get_children():
+		if c.has_method("reset_values"):
+			c.reset_values()
+			c.hide()
+
+
 
 
 func activate_next_item(resource_name : String , amount : int):

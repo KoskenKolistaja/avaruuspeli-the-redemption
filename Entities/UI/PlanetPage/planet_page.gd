@@ -228,6 +228,7 @@ func _on_spin_box_value_changed(value):
 	var int_value = roundi(value)
 	if planet:
 		planet.request_set_desired_population.rpc_id(1,int_value)
+		planet.desired_population = int_value
 	else:
 		push_error("Planet page didn't find planet!")
 
